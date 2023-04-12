@@ -21,7 +21,18 @@
             --clip-bottom: calc(var(--stack-height) * var(--inverse-index))
 
             clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0)
-            animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse
+
+            //animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse
+            //animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms)
+            //animation: glitch 2s ease infinite 2s alternate-reverse
+
+            animation-name: stack, glitch
+            animation-duration: 340ms, 2s
+            animation-timing-function: cubic-bezier(.46,.29,0,1.24), ease
+            animation-iteration-count: 1 , infinite
+            animation-delay: calc(var(--index) * 120ms), 2s
+            animation-fill-mode: backwards, none
+            animation-direction: normal, alternate-reverse
 
         span:nth-child(odd)
             --glitch-translate: 8px
@@ -50,7 +61,7 @@
                 transform: translate(var(--glitch-translate))
             2%
                 text-shadow: 2px -3px 0 red, -2px 3px 0 blue
-            4%, 100%
+            4%,100%
                 text-shadow: none
                 transform: none
 
