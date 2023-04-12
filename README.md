@@ -1,5 +1,5 @@
-Portfolio
+JervNorsk's Website
 ---
-For show up my activities in virtual reality.
+For shows up my digital activities.
 
 ---
