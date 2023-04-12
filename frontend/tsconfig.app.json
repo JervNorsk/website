@@ -6,7 +6,7 @@
     "types": []
   },
   "files": [
-    "src/jsMain/typescript/io/github/jervnorsk/main.ts"
+    "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.ts"
   ],
   "include": [
     "src/jsMain/typescript/**/*.d.ts"
