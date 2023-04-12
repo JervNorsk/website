@@ -11,7 +11,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src/jsMain/typescript/io/github/jervnorsk",
+      "sourceRoot": "src/jsMain/typescript/io/github/jervnorsk/website/client/web",
       "prefix": "app",
       "architect": {
         "build": {
