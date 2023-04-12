@@ -1,4 +1,4 @@
-name: jervnorsk-portfolio-frontend-ci-cd
+name: jervnorsk-portfolio-frontend-workflow
 
 on:
     push:
