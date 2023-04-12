@@ -20,16 +20,16 @@ jobs:
                     deploy_branch: github/pages
                     angular_project_dir: frontend
                     angular_dist_build_folder: frontend/dist/jervnorsk-website-frontend
-#            -   name: Pushes to another repository
-#                uses: cpina/github-action-push-to-another-repository@main
-#               env:
-#                    API_TOKEN_GITHUB: ${{ secrets.PORTFOLIO_GITHUB_TOKEN }}
-#                with:
-#                    source-directory: frontend/dist/jervnorsk-website-frontend
-#                    destination-github-username: jervnorsk
-#                    destination-repository-name: jervnorsk.github.io
-#                    user-email: jerv.norsk@github.com
-#                    target-branch: github/pages
+            -   name: Pushes to another repository
+                uses: cpina/github-action-push-to-another-repository@main
+                env:
+                    API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
+                with:
+                    destination-github-username: jervnorsk
+                    destination-repository-name: jervnorsk.github.io
+                    user-email: jerv.norsk@github.com
+                    target-branch: github/pages
+                    source-directory: frontend/dist/jervnorsk-website-frontend
 
 permissions:
     contents: write
