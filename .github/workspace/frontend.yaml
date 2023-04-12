@@ -1,0 +1,34 @@
+name: jervnorsk-portfolio-frontend-ci-cd
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v3
+            -   name: All things angular
+                uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+                with:
+                    github_access_token: ${{ secrets.GITHUB_TOKEN }}
+                    build_configuration: production
+                    deploy_branch: gh-pages
+                    angular_project_dir: frontend
+                    angular_dist_build_folder: frontend/dist/jervnorsk-portfolio-frontend
+            -   name: Pushes to another repository
+                uses: cpina/github-action-push-to-another-repository@main
+                env:
+                    API_TOKEN_GITHUB: ${{ secrets.PORTFOLIO_GITHUB_TOKEN }}
+                with:
+                    source-directory: frontend/dist/jervnorsk-portfolio-frontend
+                    destination-github-username: jervnorsk
+                    destination-repository-name: jervnorsk.github.io
+                    user-email: jerv.norsk@github.com
+                    target-branch: github/pages
+
+permissions:
+    contents: write
