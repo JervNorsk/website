@@ -1,0 +1,24 @@
+<!--<th-scene #scene>-->
+<!--&lt;!&ndash;    [children]="sceneChildren"&ndash;&gt;-->
+<!--&lt;!&ndash;&gt;&ndash;&gt;-->
+<!--        <th-perspectiveCamera #camera [position]="[0,0,5]" [rotation]="[0,0,0]"/>-->
+<!--            <th-mesh [scale]="[.5, .5, .5]">-->
+<!--                <th-boxGeometry/>-->
+<!--                <th-meshBasicMaterial/>-->
+<!--            </th-mesh>-->
+<!--        <th-ambientLight/>-->
+<!--&lt;!&ndash;    <app-environment-grid [scene]="scene.objRef$"/>&ndash;&gt;-->
+<!--</th-scene>-->
+<th-canvas #canvas>
+    <th-scene [objRef]="scene">
+        <th-perspectiveCamera [position]="[0, 0, 5]"
+                              [rotation]="[0,0,0]"
+        />
+        <th-ambientLight/>
+        <th-prefab-grid [scene]="scene"
+                        [position]="[0, 0, 0.2]"
+                        [size]="[20, 20]"
+                        [padding]="0.5"
+        />
+    </th-scene>
+</th-canvas>
