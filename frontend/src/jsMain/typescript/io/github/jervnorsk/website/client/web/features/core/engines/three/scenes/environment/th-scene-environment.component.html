@@ -9,16 +9,29 @@
 <!--        <th-ambientLight/>-->
 <!--&lt;!&ndash;    <app-environment-grid [scene]="scene.objRef$"/>&ndash;&gt;-->
 <!--</th-scene>-->
-<th-canvas #canvas>
-    <th-scene [objRef]="scene">
-        <th-perspectiveCamera [position]="[0, 0, 5]"
-                              [rotation]="[0,0,0]"
-        />
-        <th-ambientLight/>
-        <th-prefab-grid [scene]="scene"
-                        [position]="[0, 0, 0.2]"
-                        [size]="[20, 20]"
+<th-canvas [thStats]="false">
+    <th-scene>
+<!--        <th-perspectiveCamera [position]="[0, 5, 0]"-->
+<!--                              [lookAt]="[0,0,0]"-->
+<!--        />-->
+<!--        <th-prefab-grid [position]="[0, 0.2, 0]"-->
+<!--                        [size]="[10, 10]"-->
+<!--                        [padding]="0.5"-->
+<!--        />-->
+        <th-prefab-wave [position]="[0, 0.2, 0]"
+                        [size]="[50, 50]"
                         [padding]="0.5"
         />
+
+<!--        DEBUG-->
+        <th-perspectiveCamera [position]="[5, 5, 5]"
+                              [lookAt]="[0,-2,0]"
+        />
+<!--        <th-hemisphereLight [args]="['#ffffff', '#444444' ]" [position]="[0,20,0]"/>-->
+<!--        <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">-->
+<!--            <th-planeGeometry [args]="[2000,2000]"/>-->
+<!--            <th-meshPhongMaterial [args]="{ color: '#222222', depthWrite: false }"/>-->
+<!--        </th-mesh>-->
+<!--        <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>-->
     </th-scene>
 </th-canvas>

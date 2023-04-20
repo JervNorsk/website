@@ -1,16 +1,16 @@
 import {
     AfterContentChecked,
     AfterContentInit,
-    AfterViewChecked,
+    AfterViewChecked, AfterViewInit,
     ChangeDetectionStrategy,
-    Component,
+    Component, ElementRef,
     Input,
     OnInit,
     ViewChild
 } from '@angular/core';
 import {ThCamera, ThCanvas, ThPerspectiveCamera, ThScene} from "ngx-three";
 import {
-    AmbientLight, BufferGeometry,
+    AmbientLight, BufferGeometry, Color,
     Material,
     Mesh,
     MeshBasicMaterial,
@@ -20,46 +20,46 @@ import {
     Vector3
 } from "three";
 import {Geometry} from "three/examples/jsm/deprecated/Geometry";
+import {EOF} from "@angular/compiler";
 
 @Component({
     selector: 'th-scene-environment',
     templateUrl: './th-scene-environment.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ThSceneEnvironment implements OnInit, AfterContentInit, AfterContentChecked, AfterViewChecked {
+export class ThSceneEnvironment implements OnInit, AfterContentInit, AfterViewInit {
 
     // @Input()
     // @ViewChild("canvas", {static: true})
     // canvas!: ThCanvas
 
-    // @ViewChild("scene", {static: true})
-    scene: Scene;
+    // @ViewChild(ThScene, {static: true})
+    // scene: ThScene | undefined;
+    // scene: Scene;
 
     // @ViewChild("camera", {static: true})
     // camera!: ThPerspectiveCamera
 
     constructor() {
-        this.scene = new Scene();
+        // this.scene = new Scene();
     }
 
     ngOnInit() {
-        // this.scene.objRef$.subscribe(it => {
-        //     console.log(it.children);
+        // console.log("ngOnInit", this.scene);
+        // this.scene?.objRef$.subscribe(it => {
+        //     console.log("ngOnInit", it.children);
         // });
     }
     ngAfterContentInit() {
-        // this.scene.objRef$.subscribe(it => {
-        //     console.log(it.children);
+        // console.log("ngAfterContentInit", this.scene);
+        // this.scene?.objRef$.subscribe(it => {
+        //     console.log("ngAfterContentInit", it.children);
         // });
     }
-    ngAfterContentChecked() {
-        // this.scene.objRef$.subscribe(it => {
-        //     console.log(it.children);
-        // });
-    }
-    ngAfterViewChecked() {
-        // this.scene.objRef$.subscribe(it => {
-        //     console.log(it.children);
+    ngAfterViewInit() {
+        // console.log("ngAfterViewInit", this.scene);
+        // this.scene?.objRef$.subscribe(it => {
+        //     console.log("ngAfterViewInit (Observable)", it.children);
         // });
     }
 
@@ -187,4 +187,5 @@ export class ThSceneEnvironment implements OnInit, AfterContentInit, AfterConten
     // //         }
     // //     }
     // // }
+    protected readonly Math = Math;
 }

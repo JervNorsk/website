@@ -1,5 +1,6 @@
 import {AfterContentInit, AfterViewChecked, Component, Input, OnInit} from '@angular/core';
 import {BufferGeometry, Mesh, MeshBasicMaterial, Scene, SphereGeometry, Vector3} from "three";
+import {ThScene} from "ngx-three";
 
 @Component({
     selector: 'th-prefab-grid',
@@ -8,8 +9,15 @@ import {BufferGeometry, Mesh, MeshBasicMaterial, Scene, SphereGeometry, Vector3}
 })
 export class ThPrefabGrid implements OnInit {
 
-    @Input()
-    scene!: Scene;
+    scene: Scene | undefined
+
+    constructor(
+        private thScene: ThScene
+    ) {
+        thScene.objRef$.subscribe(it => {
+            this.scene = it;
+        });
+    }
 
     @Input()
     set position(value: Vector3 | [x: number, y: number, z: number]) {
@@ -179,11 +187,11 @@ export class ThPrefabGrid implements OnInit {
                 )
                 unit.position.set(
                     config.unit.position.x + (config.quadrant.columns.offset * columnIndex),
-                    config.unit.position.y + (config.quadrant.rows.offset * rowIndex),
-                    config.unit.position.z,
+                    config.unit.position.y,
+                    config.unit.position.z + (config.quadrant.rows.offset * rowIndex),
                 );
 
-                this.scene.children.push(unit);
+                this.scene?.children.push(unit);
             }
         }
     }
@@ -198,6 +206,6 @@ export class ThPrefabGrid implements OnInit {
             )
         }
 
-        this.scene.children.push(controller.mesh)
+        this.scene?.children.push(controller.mesh)
     }
 }
