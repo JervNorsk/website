@@ -11,27 +11,27 @@
                 }
             },
             "root": "",
-            "sourceRoot": "src/jsMain/typescript/io/github/jervnorsk/website/client/web",
+            "sourceRoot": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web",
             "prefix": "app",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/jervnorsk-website-frontend",
-                        "index": "src/jsMain/typescript/io/github/jervnorsk/website/client/web/index.html",
-                        "main": "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.ts",
+                        "index": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/index.html",
+                        "main": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/main.ts",
                         "polyfills": [
                             "zone.js"
                         ],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "sass",
                         "assets": [
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/favicon.ico",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/assets"
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/favicon.ico",
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/assets"
                         ],
                         "styles": [
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/bootstrap.sass",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.sass"
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/bootstrap.sass",
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/main.sass"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -92,12 +92,12 @@
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "sass",
                         "assets": [
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/favicon.ico",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/assets"
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/favicon.ico",
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/assets"
                         ],
                         "styles": [
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/bootstrap.sass",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.sass"
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/bootstrap.sass",
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/main.sass"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
