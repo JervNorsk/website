@@ -30,9 +30,8 @@
                             "src/jsMain/typescript/io/github/jervnorsk/website/client/web/assets"
                         ],
                         "styles": [
-                            "node_modules/bootstrap/scss/bootstrap.scss",
-                            "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/styles.sass"
+                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/bootstrap.sass",
+                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.sass"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -97,9 +96,8 @@
                             "src/jsMain/typescript/io/github/jervnorsk/website/client/web/assets"
                         ],
                         "styles": [
-                            "node_modules/bootstrap/scss/bootstrap.scss",
-                            "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/styles.sass"
+                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/bootstrap.sass",
+                            "src/jsMain/typescript/io/github/jervnorsk/website/client/web/main.sass"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

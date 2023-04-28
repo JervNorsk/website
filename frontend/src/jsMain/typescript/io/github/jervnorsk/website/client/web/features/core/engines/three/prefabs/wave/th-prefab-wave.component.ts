@@ -2,6 +2,10 @@ import {AfterContentInit, AfterViewInit, Component, ContentChild, Input, ViewChi
 import {RenderState, ThBufferGeometry} from "ngx-three";
 import {BufferAttribute, Color, MeshBasicMaterial, SphereGeometry, Vector3} from "three";
 
+/**
+ *
+ * Code Reference: https://github.com/mrdoob/three.js/blob/master/examples/webgl_points_waves.html
+ */
 @Component({
     selector: 'th-prefab-wave',
     templateUrl: './th-prefab-wave.component.html',
