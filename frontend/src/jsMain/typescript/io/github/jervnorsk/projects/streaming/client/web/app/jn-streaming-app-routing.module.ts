@@ -4,12 +4,18 @@ import {JnStreamingSceneIntroOnStartComponent} from "../scenes/intro/jn-streamin
 import {
     JnNotFoundErrorComponent
 } from "../../../../../foundation/client/web/features/core/errors/not-found/jn-not-found-error.component";
+import {JnStreamingSceneIntroOnEndComponent} from "../scenes/intro/jn-streaming-scene-intro-on-end.component";
 
 const routes: Routes = [
     {
         path: 'scenes/intro/on-start',
         pathMatch: "full",
         component: JnStreamingSceneIntroOnStartComponent
+    },
+    {
+        path: 'scenes/intro/on-end',
+        pathMatch: "full",
+        component: JnStreamingSceneIntroOnEndComponent
     },
     {
         path: '**',

@@ -4,8 +4,8 @@ import {Component} from '@angular/core';
     templateUrl: './jn-streaming-scene-intro-on-start.component.html',
     styleUrls: [ './jn-streaming-scene-intro-on-start.component.sass']
 })
-export class JnStreamingSceneIntroOnStartComponent {
+export class JnStreamingSceneIntroOnEndComponent {
     topTitle = "the streaming is"
-    mainTitle = "< starting-soon />"
-    bottomTitle = "are you ready?"
+    mainTitle = "< ending-soon />"
+    bottomTitle = "thank you!"
 }
