@@ -1,20 +1,36 @@
-<div class="glitch d-flex flex-column justify-content-center">
-    <div class="stack text-start" style="--stacks: 2;">
-        <span style="--index: 0;" class="topTitle"></span>
-        <span style="--index: 1;" class="topTitle"></span>
-    </div>
-    <div class="stack text-center" style="--stacks: 4;">
-        <span style="--index: 0;" class="mainTitle"></span>
-        <span style="--index: 1;" class="mainTitle"></span>
-        <span style="--index: 2;" class="mainTitle"></span>
-        <span style="--index: 3;" class="mainTitle"></span>
-    </div>
-    <div class="stack text-end" style="--stacks: 2;">
-        <span style="--index: 0;" class="mainSubTitle"></span>
-        <span style="--index: 1;" class="mainSubTitle"></span>
-    </div>
-    <div class="stack text-end" style="--stacks: 2;">
-        <span style="--index: 0;" class="bottomTitle"></span>
-        <span style="--index: 1;" class="bottomTitle"></span>
+<div class="position-absolute w-100 h-100" style="z-index: -1">
+    <th-canvas>
+        <th-scene>
+            <th-ambientLight/>
+            <th-perspectiveCamera [position]="[5, 5, 5]"
+                                  [lookAt]="[0,-2,0]"
+            />
+            <th-prefab-wave [position]="[0, 0.2, 0]"
+                            [size]="[50, 50]"
+                            [padding]="0.5"
+            />
+        </th-scene>
+    </th-canvas>
+</div>
+<div class="position-absolute w-100 h-100">
+    <div class="glitch d-flex flex-column justify-content-center">
+        <div class="stack text-start" style="--stacks: 2;">
+            <span style="--index: 0;" class="topTitle"></span>
+            <span style="--index: 1;" class="topTitle"></span>
+        </div>
+        <div class="stack text-center" style="--stacks: 4;">
+            <span style="--index: 0;" class="mainTitle"></span>
+            <span style="--index: 1;" class="mainTitle"></span>
+            <span style="--index: 2;" class="mainTitle"></span>
+            <span style="--index: 3;" class="mainTitle"></span>
+        </div>
+        <div class="stack text-end" style="--stacks: 2;">
+            <span style="--index: 0;" class="mainSubTitle"></span>
+            <span style="--index: 1;" class="mainSubTitle"></span>
+        </div>
+        <div class="stack text-end" style="--stacks: 2;">
+            <span style="--index: 0;" class="bottomTitle"></span>
+            <span style="--index: 1;" class="bottomTitle"></span>
+        </div>
     </div>
 </div>

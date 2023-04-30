@@ -9,23 +9,30 @@ import {
 
 const routes: Routes = [
     {
-        path: 'projects/streaming',
-        loadChildren: () => import("../../../../streaming/client/web/app/jn-streaming-app.module").then(it => it.JnStreamingAppModule)
-    },
-    {
-        path: 'webgl',
-        pathMatch: "full",
-        outlet: "jn-website-environment",
-        component: JnNotImplementedErrorComponent // TODO: iniettare oggetti 3D in base alla path???
-    },
-    {
         path: '',
         pathMatch: "full",
         component: JnNotImplementedErrorComponent
     },
     {
+        path: '',
+        children: [
+            {
+                path: 'webgl/three',
+                loadChildren: () => import("../features/webgl/engines/three/jn-website-three.module").then(it => it.JnWebsiteThreeModule)
+            },
+            {
+                path: 'projects',
+                children: [
+                    {
+                        path: 'streaming',
+                        loadChildren: () => import("../../../../streaming/client/web/app/jn-streaming-app.module").then(it => it.JnStreamingAppModule)
+                    },
+                ]
+            },
+        ]
+    },
+    {
         path: '**',
-        pathMatch: "full",
         component: JnNotFoundErrorComponent
     },
 ];

@@ -1,27 +1,26 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {JnStreamingSceneIntroOnStartComponent} from "../scenes/intro/jn-streaming-scene-intro-on-start.component";
 import {
     JnNotFoundErrorComponent
 } from "../../../../../foundation/client/web/features/core/errors/not-found/jn-not-found-error.component";
-import {JnStreamingSceneIntroOnEndComponent} from "../scenes/intro/jn-streaming-scene-intro-on-end.component";
 import {JnStreamingSceneIntroComponent} from "../scenes/intro/jn-streaming-scene-intro.component";
+import {JnStreamingAppComponent} from "./jn-streaming-app.component";
 
 const routes: Routes = [
     {
-        path: 'scenes/intro',
-        pathMatch: "full",
-        component: JnStreamingSceneIntroComponent
-    },
-    {
-        path: 'scenes/intro/on-start',
-        pathMatch: "full",
-        component: JnStreamingSceneIntroOnStartComponent
-    },
-    {
-        path: 'scenes/intro/on-end',
-        pathMatch: "full",
-        component: JnStreamingSceneIntroOnEndComponent
+        path: '',
+        children: [
+            {
+                path: 'scenes',
+                children: [
+                    {
+                        path: 'intro',
+                        component: JnStreamingSceneIntroComponent
+                    }
+                ]
+            },
+
+        ]
     },
     {
         path: '**',
