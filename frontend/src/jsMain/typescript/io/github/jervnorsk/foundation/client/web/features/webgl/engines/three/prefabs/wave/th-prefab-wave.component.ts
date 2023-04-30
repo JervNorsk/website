@@ -74,7 +74,7 @@ export class ThPrefabWave implements AfterContentInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        console.log("ngAfterViewInit", "th-grid", this.geometry)
+        // console.log("ngAfterViewInit", "th-grid", this.geometry)
 
         this.setGeometryAttributes();
     }
