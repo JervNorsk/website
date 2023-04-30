@@ -1,4 +1,4 @@
-import {Component, Directive, ViewEncapsulation} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'jn-website-th',
@@ -6,4 +6,6 @@ import {Component, Directive, ViewEncapsulation} from '@angular/core';
 })
 export class JnWebsiteThreeComponent {
 
+    @Input()
+    withContent: boolean = false;
 }

@@ -6,12 +6,13 @@ import {
 import {
     JnNotImplementedErrorComponent
 } from "../../../../../foundation/client/web/features/core/errors/not-implemented/jn-not-implemented-error.component";
+import {JnWebsitePageComponent} from "./pages/jn-website-page.component";
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: "full",
-        component: JnNotImplementedErrorComponent
+        component: JnWebsitePageComponent
     },
     {
         path: '',
@@ -33,7 +34,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        component: JnNotFoundErrorComponent
+        component: JnWebsitePageComponent
     },
 ];
 

@@ -1,0 +1,13 @@
+<th-scene>
+    <th-ambientLight/>
+    <th-perspectiveCamera />
+    <th-prefab-panorama-vr />
+
+    <!--    DEBUG-->
+    <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">
+        <th-planeGeometry [args]="[2000,2000]"/>
+        <th-meshPhongMaterial [args]="{ color: '#222222', depthWrite: false }"/>
+    </th-mesh>
+    <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>
+</th-scene>
+

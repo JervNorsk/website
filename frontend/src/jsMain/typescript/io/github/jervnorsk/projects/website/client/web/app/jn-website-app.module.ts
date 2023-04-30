@@ -4,11 +4,13 @@ import {JnCoreModule} from "../../../../../foundation/client/web/features/core/j
 import {JnWebsiteAppRoutingModule} from "./jn-website-app-routing.module";
 import {JnWebsiteThreeModule} from "../features/webgl/engines/three/jn-website-three.module";
 import {BrowserModule} from "@angular/platform-browser";
-import {JnThreeModule} from "../../../../../foundation/client/web/features/webgl/engines/three/jn-three.module";
+import {NgxThreeModule} from "ngx-three";
+import {JnWebsitePageComponent} from "./pages/jn-website-page.component";
 
 @NgModule({
     declarations: [
-        JnWebsiteAppComponent
+        JnWebsiteAppComponent,
+        JnWebsitePageComponent
     ],
     imports: [
         // App
@@ -18,7 +20,8 @@ import {JnThreeModule} from "../../../../../foundation/client/web/features/webgl
         // Foundation
         JnCoreModule,
         // Framework
-        BrowserModule
+        BrowserModule,
+        NgxThreeModule
     ],
     providers: [],
     bootstrap: [

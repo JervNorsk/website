@@ -1,9 +1,4 @@
-html
-    overflow: hidden
-
 main
-    display: flex
-
     width: 100%
     height: 100%
 
@@ -13,10 +8,8 @@ main
 router-outlet
     display: none
 
+    + *
+        display: contents
+
 ng-component
-    display: flex
-
-    width: 100%
-    height: 100%
-
-    justify-content: space-around
+    display: contents

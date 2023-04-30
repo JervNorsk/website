@@ -7,18 +7,22 @@ import {RouterModule, RouterOutlet} from "@angular/router";
 import {JnWebsiteThreeComponent} from "./jn-website-three.component";
 import {JnCoreModule} from "../../../../../../../../foundation/client/web/features/core/jn-core.module";
 import {JnWebsiteThreeRoutingModule} from "./jn-website-three-routing.module";
+import {NgIf} from "@angular/common";
+import {JnWebsiteThSceneVR} from "./scenes/vr/jn-website-th-scene-vr.component";
 
 @NgModule({
     declarations: [
         JnWebsiteThreeComponent,
-        JnWebsiteThSceneEnvironment
+        JnWebsiteThSceneEnvironment,
+        JnWebsiteThSceneVR
     ],
     imports: [
         // App
         JnWebsiteThreeRoutingModule,
         // Feature
         // Foundation
-        JnThreeModule
+        JnThreeModule,
+        NgIf,
         // Framework
     ],
     exports: [

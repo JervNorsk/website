@@ -1,7 +1,28 @@
-<div class="position-absolute w-100 h-100" style="z-index: -1">
-    <th-canvas [disableDefaultView]="false">
-        <router-outlet></router-outlet>
+<ng-container *ngIf="withContent; else routing">
+    <ng-content/>
+</ng-container>
+<ng-template #routing>
+    <th-canvas>
+        <router-outlet/>
     </th-canvas>
-</div>
-<!--<a [routerLink]="[{ outlets: { scene: ['environment'] } }]">Environment</a>-->
-<!--<button routerLink="scenes/environment">environment</button>-->
+</ng-template>
+
+<!--<th-canvas *ngIf="disableRouting; then content else routing" />-->
+<!--<ng-template #routing>-->
+<!--    <router-outlet />-->
+<!--</ng-template>-->
+<!--<ng-template #content>-->
+<!--    <jn-website-th-scene-environment />-->
+<!--    <ng-content/>-->
+<!--</ng-template>-->
+
+<!--<th-canvas *ngIf="disableRouting; else routing">-->
+<!--    ENVIRONMENT-->
+<!--    <jn-website-th-scene-environment />-->
+<!--&lt;!&ndash;    <jn-website-th-scene-vr />&ndash;&gt;-->
+<!--</th-canvas>-->
+
+<!--<ng-template #routing>-->
+<!--    OUTLET-->
+<!--    <router-outlet></router-outlet>-->
+<!--</ng-template>-->

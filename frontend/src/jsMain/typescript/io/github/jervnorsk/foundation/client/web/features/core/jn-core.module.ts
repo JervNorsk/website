@@ -18,7 +18,9 @@ import {CommonModule} from "@angular/common";
     ],
     exports: [
         CommonModule,
-        NgbModule
+        NgbModule,
+        JnNotFoundErrorComponent,
+        JnNotImplementedErrorComponent
     ],
     providers: []
 })
