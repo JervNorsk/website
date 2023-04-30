@@ -4,6 +4,8 @@ import {JnCoreModule} from "../../../../../foundation/client/web/features/core/j
 import {JnWebsiteAppRoutingModule} from "./jn-website-app-routing.module";
 import {JnWebsiteThreeModule} from "../features/webgl/engines/three/jn-website-three.module";
 import {BrowserModule} from "@angular/platform-browser";
+import {NgxThreeGeneratedModule} from "ngx-three";
+import {JnThreeModule} from "../../../../../foundation/client/web/features/webgl/engines/three/jn-three.module";
 
 @NgModule({
     declarations: [
@@ -13,7 +15,9 @@ import {BrowserModule} from "@angular/platform-browser";
         JnWebsiteAppRoutingModule,
         JnWebsiteThreeModule,
         JnCoreModule,
-        BrowserModule
+        BrowserModule,
+        NgxThreeGeneratedModule,
+        JnThreeModule
     ],
     providers: [],
     bootstrap: [

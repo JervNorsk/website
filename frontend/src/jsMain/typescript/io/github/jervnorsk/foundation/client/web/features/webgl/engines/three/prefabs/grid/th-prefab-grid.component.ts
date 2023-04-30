@@ -3,7 +3,7 @@ import {BufferGeometry, Mesh, MeshBasicMaterial, Scene, SphereGeometry, Vector3}
 import {ThScene} from "ngx-three";
 
 @Component({
-    selector: 'th-prefab-grid',
+    selector: 'jn-th-prefab-grid',
     templateUrl: './th-prefab-grid.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush
 })

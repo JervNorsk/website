@@ -1,16 +1,24 @@
-<!--<th-scene #scene>-->
-<!--&lt;!&ndash;    [children]="sceneChildren"&ndash;&gt;-->
-<!--&lt;!&ndash;&gt;&ndash;&gt;-->
-<!--        <th-perspectiveCamera #camera [position]="[0,0,5]" [rotation]="[0,0,0]"/>-->
-<!--            <th-mesh [scale]="[.5, .5, .5]">-->
-<!--                <th-boxGeometry/>-->
-<!--                <th-meshBasicMaterial/>-->
-<!--            </th-mesh>-->
-<!--        <th-ambientLight/>-->
-<!--&lt;!&ndash;    <app-environment-grid [scene]="scene.objRef$"/>&ndash;&gt;-->
-<!--</th-scene>-->
+<!--&lt;!&ndash;<th-scene #scene>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    [children]="sceneChildren"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <th-perspectiveCamera #camera [position]="[0,0,5]" [rotation]="[0,0,0]"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <th-mesh [scale]="[.5, .5, .5]">&ndash;&gt;-->
+<!--&lt;!&ndash;                <th-boxGeometry/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th-meshBasicMaterial/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </th-mesh>&ndash;&gt;-->
+<!--&lt;!&ndash;        <th-ambientLight/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <app-environment-grid [scene]="scene.objRef$"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</th-scene>&ndash;&gt;-->
 <th-canvas [thStats]="false">
     <th-scene>
+        <th-perspectiveCamera [position]="[5, 5, 5]"
+                              [lookAt]="[0,-2,0]"
+        />
+        <th-prefab-wave [position]="[0, 0.2, 0]"
+                        [size]="[50, 50]"
+                        [padding]="0.5"
+        />
+
 <!--        <th-perspectiveCamera [position]="[0, 5, 0]"-->
 <!--                              [lookAt]="[0,0,0]"-->
 <!--        />-->
@@ -18,15 +26,13 @@
 <!--                        [size]="[10, 10]"-->
 <!--                        [padding]="0.5"-->
 <!--        />-->
-        <th-prefab-wave [position]="[0, 0.2, 0]"
-                        [size]="[50, 50]"
-                        [padding]="0.5"
-        />
+
+<!--        <th-prefab-panorama-vr />-->
+<!--        <th-perspectiveCamera [position]="[0, 0, 0]"-->
+<!--                              [lookAt]="[0,0,0]"-->
+<!--        />-->
 
 <!--        DEBUG-->
-        <th-perspectiveCamera [position]="[5, 5, 5]"
-                              [lookAt]="[0,-2,0]"
-        />
 <!--        <th-hemisphereLight [args]="['#ffffff', '#444444' ]" [position]="[0,20,0]"/>-->
 <!--        <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">-->
 <!--            <th-planeGeometry [args]="[2000,2000]"/>-->
@@ -35,3 +41,16 @@
 <!--        <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>-->
     </th-scene>
 </th-canvas>
+
+<!--<th-canvas>-->
+<!--    <th-scene>-->
+<!--        <th-ambientLight/>-->
+<!--        <th-perspectiveCamera [position]="[5, 5, 5]"-->
+<!--                              [lookAt]="[0,-2,0]"-->
+<!--        />-->
+<!--        <th-prefab-wave [position]="[0, 0.2, 0]"-->
+<!--                        [size]="[50, 50]"-->
+<!--                        [padding]="0.5"-->
+<!--        />-->
+<!--    </th-scene>-->
+<!--</th-canvas>-->

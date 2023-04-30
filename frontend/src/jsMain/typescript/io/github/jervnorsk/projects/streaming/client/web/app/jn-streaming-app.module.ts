@@ -4,10 +4,12 @@ import {JnCoreModule} from "../../../../../foundation/client/web/features/core/j
 import {JnStreamingAppRoutingModule} from "./jn-streaming-app-routing.module";
 import {JnStreamingSceneIntroOnStartComponent} from "../scenes/intro/jn-streaming-scene-intro-on-start.component";
 import {JnStreamingSceneIntroOnEndComponent} from "../scenes/intro/jn-streaming-scene-intro-on-end.component";
+import {JnStreamingSceneIntroComponent} from "../scenes/intro/jn-streaming-scene-intro.component";
 
 @NgModule({
     declarations: [
         JnStreamingAppComponent,
+        JnStreamingSceneIntroComponent,
         JnStreamingSceneIntroOnStartComponent,
         JnStreamingSceneIntroOnEndComponent
     ],

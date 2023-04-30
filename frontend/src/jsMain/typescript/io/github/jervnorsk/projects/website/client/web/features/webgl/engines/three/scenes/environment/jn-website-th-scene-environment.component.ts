@@ -8,60 +8,82 @@ import {
     OnInit,
     ViewChild
 } from '@angular/core';
-import {ThCamera, ThCanvas, ThPerspectiveCamera, ThScene} from "ngx-three";
+import {ThCamera, ThCanvas, ThEngineService, ThObject3D, ThPerspectiveCamera, ThScene, ThView} from "ngx-three";
 import {
-    AmbientLight, BufferGeometry, Color,
+    AmbientLight, BoxGeometry, BufferGeometry, Color,
     Material,
     Mesh,
     MeshBasicMaterial,
     Object3D,
-    PerspectiveCamera, Scene,
+    PerspectiveCamera, Raycaster, Scene,
     SphereGeometry,
     Vector3
 } from "three";
 import {Geometry} from "three/examples/jsm/deprecated/Geometry";
 import {EOF} from "@angular/compiler";
+import {VRButton} from "three/examples/jsm/webxr/VRButton";
+import {ThAnimationLoopService} from "ngx-three/lib/renderer/th-animation-loop.service";
+import {RaycasterService} from "ngx-three/lib/events/raycaster.service";
+import {
+    ThPrefabWave
+} from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/prefabs/wave/th-prefab-wave.component";
 
 @Component({
     selector: 'jn-website-th-scene-environment',
     templateUrl: './jn-website-th-scene-environment.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnWebsiteThSceneEnvironment implements OnInit, AfterContentInit, AfterViewInit {
+export class JnWebsiteThSceneEnvironment implements AfterViewInit {
 
-    // @Input()
-    // @ViewChild("canvas", {static: true})
-    // canvas!: ThCanvas
-
-    // @ViewChild(ThScene, {static: true})
-    // scene: ThScene | undefined;
-    // scene: Scene;
-
-    // @ViewChild("camera", {static: true})
-    // camera!: ThPerspectiveCamera
-
-    constructor() {
-        // this.scene = new Scene();
+    constructor(
+        // private engine: ThEngineService,
+        // private canvas: ThCanvas,
+        // parent: ThObject3D
+    ) {
+        // super(parent);
     }
 
-    ngOnInit() {
-        // console.log("ngOnInit", this.scene);
-        // this.scene?.objRef$.subscribe(it => {
-        //     console.log("ngOnInit", it.children);
-        // });
-    }
-    ngAfterContentInit() {
-        // console.log("ngAfterContentInit", this.scene);
-        // this.scene?.objRef$.subscribe(it => {
-        //     console.log("ngAfterContentInit", it.children);
-        // });
-    }
     ngAfterViewInit() {
-        // console.log("ngAfterViewInit", this.scene);
-        // this.scene?.objRef$.subscribe(it => {
-        //     console.log("ngAfterViewInit (Observable)", it.children);
-        // });
+        // console.log(this);
+        // console.log(this.engine);
+
+        // this.initScene();
+        // this.addToParent()
+
+        // console.log(this.objRef!.children);
     }
+
+    // initScene() {
+    //     this.canvas.scene = this;
+    //
+    //     console.log(this.canvas.camera);
+    //     console.log(this.canvas.scene);
+    //
+    //     let light = new AmbientLight();
+    //     this.objRef!.add(light);
+    //
+    //     let mesh = new Mesh(
+    //         new BoxGeometry(1),
+    //         new MeshBasicMaterial()
+    //     )
+    //     this.objRef!.add(mesh);
+    //
+    //     let wave = new ThPrefabWave();
+    //     // wave.points?.addToParent()
+    //
+    //     this.canvas.camera!.position = [-5, 0, 0];
+    //     this.canvas.camera!.lookAt = [0, 0, 0];
+    //
+    //     this.engine.renderer!.xr.enabled = true;
+    //     // this.engine.renderer!.xr.setReferenceSpaceType('');
+    //
+    //     document.body.append(VRButton.createButton( this.engine.renderer! ))
+    //
+    //     this.engine.beforeRender$.subscribe(state => {});
+    //     this.engine.renderer!.setAnimationLoop(() => {
+    //         this.engine.render()
+    //     })
+    // }
 
     // @ViewChild("scene", {static: true})
     // scene!: ThScene;

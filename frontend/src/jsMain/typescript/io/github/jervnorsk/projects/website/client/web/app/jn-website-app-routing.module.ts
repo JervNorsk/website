@@ -13,6 +13,12 @@ const routes: Routes = [
         loadChildren: () => import("../../../../streaming/client/web/app/jn-streaming-app.module").then(it => it.JnStreamingAppModule)
     },
     {
+        path: 'webgl',
+        pathMatch: "full",
+        outlet: "jn-website-environment",
+        component: JnNotImplementedErrorComponent // TODO: iniettare oggetti 3D in base alla path???
+    },
+    {
         path: '',
         pathMatch: "full",
         component: JnNotImplementedErrorComponent

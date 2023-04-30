@@ -1,5 +1,5 @@
 import {AfterContentInit, AfterViewInit, Component, ContentChild, Input, ViewChild} from '@angular/core';
-import {RenderState, ThBufferGeometry} from "ngx-three";
+import {RenderState, ThBufferGeometry, ThPoints} from "ngx-three";
 import {BufferAttribute, Color, MeshBasicMaterial, SphereGeometry, Vector3} from "three";
 
 /**
@@ -12,6 +12,9 @@ import {BufferAttribute, Color, MeshBasicMaterial, SphereGeometry, Vector3} from
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThPrefabWave implements AfterContentInit, AfterViewInit {
+
+    @ViewChild(ThPoints, {static: true})
+    points: ThPoints | undefined
 
     // @ContentChild(ThBufferGeometry, {static: true})
     @ViewChild(ThBufferGeometry, {static: true})
