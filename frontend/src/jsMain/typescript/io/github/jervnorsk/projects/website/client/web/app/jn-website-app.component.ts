@@ -1,4 +1,4 @@
-import {Component, Directive, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: '[jn-website-app]',

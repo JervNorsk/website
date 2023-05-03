@@ -7,11 +7,11 @@ import {BufferAttribute, Color, MeshBasicMaterial, SphereGeometry, Vector3} from
  * Code Reference: https://github.com/mrdoob/three.js/blob/master/examples/webgl_points_waves.html
  */
 @Component({
-    selector: 'th-prefab-wave',
-    templateUrl: './th-prefab-wave.component.html',
+    selector: 'th-example-wave',
+    templateUrl: './th-example-wave.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ThPrefabWave implements AfterContentInit, AfterViewInit {
+export class ThExampleWave implements AfterContentInit, AfterViewInit {
 
     @ViewChild(ThPoints, {static: true})
     points: ThPoints | undefined

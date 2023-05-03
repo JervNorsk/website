@@ -1,16 +1,18 @@
 import {NgModule} from "@angular/core";
 import {NgxThreeModule} from "ngx-three";
-import {ThPrefabGrid} from "./prefabs/grid/th-prefab-grid.component";
-import {ThPrefabWave} from "./prefabs/wave/th-prefab-wave.component";
-import {ThPrefabPanoramaVR} from "./prefabs/panorama/th-prefab-panorama-vr.component";
+import {ThExampleWave} from "./examples/wave/th-example-wave.component";
 import {JnThScene} from "./scenes/jn-th-scene.component";
+import {ThExampleVRPanorama} from "./examples/vr/panorama/th-prefab-panorama-vr.component";
+import {JnThGrid} from "./utils/grid/jn-th-grid.component";
+import {JnThPrefab} from "./prebas/jn-th-prefab.component";
 
 @NgModule({
     declarations: [
         JnThScene,
-        ThPrefabGrid,
-        ThPrefabWave,
-        ThPrefabPanoramaVR
+        JnThPrefab,
+        JnThGrid,
+        ThExampleWave,
+        ThExampleVRPanorama
     ],
     imports: [
         NgxThreeModule
@@ -18,10 +20,12 @@ import {JnThScene} from "./scenes/jn-th-scene.component";
     exports: [
         NgxThreeModule,
         JnThScene,
-        ThPrefabGrid,
-        ThPrefabWave,
-        ThPrefabPanoramaVR,
+        JnThPrefab,
+        JnThGrid,
+        ThExampleWave,
+        ThExampleVRPanorama,
     ],
     providers: []
 })
-export class JnThreeModule {}
+export class JnThreeModule {
+}

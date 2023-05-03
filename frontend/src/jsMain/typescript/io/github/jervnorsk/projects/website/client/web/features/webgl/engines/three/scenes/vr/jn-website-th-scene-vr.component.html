@@ -1,13 +1,24 @@
 <th-scene>
-    <th-ambientLight/>
-    <th-perspectiveCamera />
-    <th-prefab-panorama-vr />
+    <!-- TEST #1-->
+    <th-group *ngIf="testCase[0].enabled"
+              [objRef]="testCase[0].root.objRef"
+              [position]="testCase[0].root.position">
+        <!-- CUBE-->
+        <th-mesh [objRef]="testCase[0].cube.objRef"
+                 [position]="testCase[0].cube.position">
+            <th-boxGeometry/>
+            <th-meshPhongMaterial [args]="testCase[0].cube.material"/>
+        </th-mesh>
 
-    <!--    DEBUG-->
-    <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">
-        <th-planeGeometry [args]="[2000,2000]"/>
-        <th-meshPhongMaterial [args]="{ color: '#222222', depthWrite: false }"/>
-    </th-mesh>
-    <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>
+        <!-- LIGHT-->
+        <th-group [objRef]="testCase[0].light.objRef">
+            <th-pointLight [position]="testCase[0].light.point.position">
+                <th-mesh>
+                    <th-sphereGeometry [args]="[testCase[0].light.point.radius]"/>
+                    <th-meshBasicMaterial/>
+                </th-mesh>
+            </th-pointLight>
+        </th-group>
+    </th-group>
 </th-scene>
 

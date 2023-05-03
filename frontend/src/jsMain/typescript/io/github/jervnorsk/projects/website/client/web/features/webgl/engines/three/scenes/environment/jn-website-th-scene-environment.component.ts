@@ -1,9 +1,13 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {
     JnThScene
 } from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/scenes/jn-th-scene.component";
 import {ThEngineService, ThObject3D} from "ngx-three";
-import {VRButton} from "three/examples/jsm/webxr/VRButton";
+import {ActivatedRoute} from "@angular/router";
+import {
+    JnThGridProps
+} from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/utils/grid/jn-th-grid.component";
+import {JnWebsiteThPrefabWavePointProps} from "../../prefabs/wave/jn-website-th-prefab-wave-point.component";
 
 @Component({
     selector: 'jn-website-th-scene-environment',
@@ -12,37 +16,44 @@ import {VRButton} from "three/examples/jsm/webxr/VRButton";
 })
 export class JnWebsiteThSceneEnvironment extends JnThScene implements AfterViewInit {
 
+    @Input()
+    debug: boolean = false
+
+    @Input()
+    vr: boolean = false
+
     protected readonly Math = Math;
 
+    wavePoint: JnWebsiteThPrefabWavePointProps = {
+        grid:  {
+            size: {
+                x: 100,
+                y: 100
+            }
+        },
+        animation: {}
+    }
+
     constructor(
+        private route: ActivatedRoute,
         private engine: ThEngineService,
         parent: ThObject3D
     ) {
         super(parent);
     }
 
+    override ngOnInit() {
+        super.ngOnInit();
+        this.route.queryParams.subscribe(it => {
+            this.debug = it["debug"] === 'true';
+            this.vr = it["vr"] === 'true';
+        });
+    }
+
     ngAfterViewInit() {
         this.initScene();
-        this.initXR();
     }
 
     initScene() {
-    }
-
-    initXR() {
-        document.body.append(
-            VRButton.createButton(this.engine.renderer!)
-        )
-        this.engine.renderer!.xr.enabled = true;
-        // this.engine.renderer!.xr.setReferenceSpaceType('');
-
-        // this.engine.beforeRender$.subscribe(state => {
-        //     if(!this.engine.renderer!.xr.isPresenting) {
-        //
-        //     }
-        // });
-        this.engine.renderer!.setAnimationLoop(() => {
-            this.engine.render()
-        })
     }
 }

@@ -9,11 +9,11 @@ import {VRButton} from "three/examples/jsm/webxr/VRButton";
  * Code Reference: https://github.com/mrdoob/three.js/blob/master/examples/webgl_points_waves.html
  */
 @Component({
-    selector: 'th-prefab-panorama-vr',
-    templateUrl: './th-prefab-panorama-vr.component.html',
+    selector: 'th-example-panorama-vr',
+    templateUrl: './th-example-panorama-vr.component.html',
     // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ThPrefabPanoramaVR extends ThGroup implements AfterViewInit {
+export class ThExampleVRPanorama extends ThGroup implements AfterViewInit {
 
     constructor(
         private engine: ThEngineService,

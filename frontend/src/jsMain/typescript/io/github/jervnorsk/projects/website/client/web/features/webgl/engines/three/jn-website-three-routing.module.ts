@@ -14,7 +14,10 @@ const routes: Routes = [
                 children: [
                     {
                         path: 'environment',
-                        component: JnWebsiteThSceneEnvironment
+                        component: JnWebsiteThSceneEnvironment,
+                        data: {
+                            testCase: 0
+                        }
                     },
                     {
                         path: 'vr',

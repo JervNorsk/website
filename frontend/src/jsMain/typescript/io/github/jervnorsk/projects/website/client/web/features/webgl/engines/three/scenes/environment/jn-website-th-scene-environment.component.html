@@ -1,18 +1,34 @@
-<th-scene>
-    <th-ambientLight/>
+<th-scene [position]="[0, 0, 0]">
+    <!-- CAMERA-->
     <th-perspectiveCamera [position]="[5, 5, 5]"
-                          [lookAt]="[0,-2,0]"
+                          [lookAt]="[0,-1,0]"
     />
-    <th-prefab-wave [position]="[0, 0.2, 0]"
-                    [size]="[50, 50]"
-                    [padding]="0.5"
-    />
+    <!-- VR-->
+    <jn-website-th-scene-vr *ngIf="vr"/>
 
-    <!--    DEBUG-->
-    <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">
-        <th-planeGeometry [args]="[2000,2000]"/>
-        <th-meshPhongMaterial [args]="{ color: '#222222', depthWrite: false }"/>
-    </th-mesh>
-    <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>
+    <!-- LIGHT-->
+    <th-ambientLight [intensity]="0.3"/>
+
+    <!-- COMPOSER-->
+<!--    <th-effectComposer>-->
+<!--        <th-renderPass />-->
+<!--        <th-filmPass />-->
+<!--    </th-effectComposer>-->
+
+    <!-- GROUND-->
+    <th-group>
+        <jn-website-th-prefab-wave-point [grid]="wavePoint.grid"
+                                         [animation]="wavePoint.animation"
+                                         [position]="[0, 0.2, 0]"
+        />
+        <!-- DEBUG-->
+        <th-group *ngIf="debug">
+            <th-mesh [rotation]="[-0.5 * Math.PI,0,0]" [receiveShadow]="true">
+                <th-planeGeometry [args]="[2000,2000]"/>
+                <th-meshBasicMaterial [args]="{ color: '#222222' }"/>
+            </th-mesh>
+            <th-gridHelper [args]="[200, 40, '#ffffff', '#aaaaaa']"/>
+        </th-group>
+    </th-group>
 </th-scene>
 

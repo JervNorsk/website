@@ -1,0 +1,9 @@
+<th-group>
+    <th-points>
+        <th-bufferGeometry/>
+        <th-shaderMaterial [vertexShader]="getShaderVertex()"
+                           [fragmentShader]="getShaderFragment()"
+                           [uniforms]="getShaderUniforms()"
+        />
+    </th-points>
+</th-group>
