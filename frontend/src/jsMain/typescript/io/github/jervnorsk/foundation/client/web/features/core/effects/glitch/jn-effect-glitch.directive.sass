@@ -1,0 +1,42 @@
+.jn-effect-glitch
+
+    .jn-effect:nth-child(odd)
+        --jn-glitch-translate: 8px
+
+    .jn-effect:nth-child(even)
+        --jn-glitch-translate: -8px
+
+    .jn-effect
+
+        @keyframes jn-effect-glitch-start
+            0%
+                opacity: 0
+                transform: translateX(-50%)
+                text-shadow: -2px 3px 0 red, 2px -3px 0 blue
+            60%
+                opacity: 0.5
+                transform: translateX(50%)
+            80%
+                transform: none
+                opacity: 1
+                text-shadow: 2px -3px 0 red, -2px 3px 0 blue
+            100%
+                text-shadow: none
+
+        @keyframes jn-effect-glitch-idle
+            0%
+                text-shadow: -2px 3px 0 red, 2px -3px 0 blue
+                transform: translate(var(--jn-glitch-translate))
+            2%
+                text-shadow: 2px -3px 0 red, -2px 3px 0 blue
+            4%,100%
+                text-shadow: none
+                transform: none
+
+        animation-name: jn-effect-glitch-start, jn-effect-glitch-idle
+        animation-duration: 340ms, 2s
+        animation-timing-function: cubic-bezier(.46,.29,0,1.24), ease
+        animation-iteration-count: 1 , infinite
+        animation-delay: calc(var(--jn-index) * 120ms), 2s
+        animation-fill-mode: backwards, none
+        animation-direction: normal, alternate-reverse

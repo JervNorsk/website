@@ -1,20 +1,18 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {
     JnThScene
 } from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/scenes/jn-th-scene.component";
 import {ThEngineService, ThObject3D} from "ngx-three";
 import {ActivatedRoute} from "@angular/router";
 import {
-    JnThGridProps
-} from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/utils/grid/jn-th-grid.component";
-import {JnWebsiteThPrefabWavePointProps} from "../../prefabs/wave/jn-website-th-prefab-wave-point.component";
-
+    JnThPrefabWavePointProps
+} from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/prefabs/wave/jn-th-prefab-wave-point.component";
 @Component({
     selector: 'jn-website-th-scene-environment',
     templateUrl: './jn-website-th-scene-environment.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnWebsiteThSceneEnvironment extends JnThScene implements AfterViewInit {
+export class JnWebsiteThSceneEnvironment extends JnThScene {
 
     @Input()
     debug: boolean = false
@@ -24,14 +22,13 @@ export class JnWebsiteThSceneEnvironment extends JnThScene implements AfterViewI
 
     protected readonly Math = Math;
 
-    wavePoint: JnWebsiteThPrefabWavePointProps = {
-        grid:  {
+    wavePoint: JnThPrefabWavePointProps = {
+        grid: {
             size: {
                 x: 100,
                 y: 100
             }
-        },
-        animation: {}
+        }
     }
 
     constructor(
@@ -50,10 +47,6 @@ export class JnWebsiteThSceneEnvironment extends JnThScene implements AfterViewI
         });
     }
 
-    ngAfterViewInit() {
-        this.initScene();
-    }
-
-    initScene() {
+    override thOnInitScene() {
     }
 }

@@ -1,15 +1,15 @@
-<div class="position-absolute w-100 h-100" style="z-index: -1">
-    <jn-website-th [withContent]="true">
-        <th-canvas>
-            <jn-website-th-scene-environment/>
-        </th-canvas>
-    </jn-website-th>
+<div class="jn-website-page-background">
+    <!--    <jn-website-th [withContent]="true">-->
+    <th-canvas>
+        <jn-website-th-scene-environment/>
+    </th-canvas>
+    <!--    </jn-website-th>-->
 </div>
-<div class="position-absolute w-100 h-100 d-flex justify-content-around" style="z-index: 0">
-    <ng-container *ngIf="isNotFound(); else notImplemented">
-        <jn-not-found-error style="display: contents"/>
+<div class="jn-website-page-foreground">
+    <ng-container *ngIf="isNotFound; else notImplemented">
+        <jn-error-not-found />
     </ng-container>
     <ng-template #notImplemented>
-        <jn-not-implemented-error style="display: contents"/>
+        <jn-error-not-implemented />
     </ng-template>
 </div>

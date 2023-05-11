@@ -1,5 +1,5 @@
 with(rootProject) {
-    name = "jervnorsk-website"
+    name = "jn-website"
 }
 
 includeBuild("backend") {

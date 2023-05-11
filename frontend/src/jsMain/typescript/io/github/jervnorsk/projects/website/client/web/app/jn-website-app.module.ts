@@ -1,31 +1,42 @@
 import {NgModule} from '@angular/core';
-import {JnWebsiteAppComponent} from "./jn-website-app.component";
-import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
+import {JnWebsiteApp} from "./jn-website-app.component";
 import {JnWebsiteAppRoutingModule} from "./jn-website-app-routing.module";
-import {JnWebsiteThreeModule} from "../features/webgl/engines/three/jn-website-three.module";
+import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
 import {BrowserModule} from "@angular/platform-browser";
+import {JnWebsitePage} from "./pages/jn-website-page.component";
 import {NgxThreeModule} from "ngx-three";
-import {JnWebsitePageComponent} from "./pages/jn-website-page.component";
+import {JnWebsiteThModule} from "../features/webgl/engines/three/jn-website-th.module";
 
 @NgModule({
     declarations: [
-        JnWebsiteAppComponent,
-        JnWebsitePageComponent
+        JnWebsiteApp,
+        JnWebsitePage
     ],
     imports: [
-        // App
+        // Module
+        // -------------------------------------------------------------------------------------------------------------
         JnWebsiteAppRoutingModule,
+
         // Feature
-        JnWebsiteThreeModule,
+        // -------------------------------------------------------------------------------------------------------------
+        JnWebsiteThModule,
+
         // Foundation
+        // -------------------------------------------------------------------------------------------------------------
         JnCoreModule,
+
+        // Lib
+        // -------------------------------------------------------------------------------------------------------------
+
         // Framework
+        // -------------------------------------------------------------------------------------------------------------
         BrowserModule,
-        NgxThreeModule
     ],
     providers: [],
     bootstrap: [
-        JnWebsiteAppComponent
+        // Module
+        // -------------------------------------------------------------------------------------------------------------
+        JnWebsiteApp
     ]
 })
 export class JnWebsiteAppModule {

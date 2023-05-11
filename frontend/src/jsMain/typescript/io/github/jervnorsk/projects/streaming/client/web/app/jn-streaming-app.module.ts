@@ -1,19 +1,33 @@
 import {NgModule} from '@angular/core';
-import {JnStreamingAppComponent} from "./jn-streaming-app.component";
+import {JnStreamingApp} from "./jn-streaming-app.component";
 import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
 import {JnStreamingAppRoutingModule} from "./jn-streaming-app-routing.module";
-import {JnStreamingSceneIntroComponent} from "../scenes/intro/jn-streaming-scene-intro.component";
-import {JnThreeModule} from "../../../../../foundation/client/web/features/webgl/engines/three/jn-three.module";
+import {JnStreamingSceneMain} from "./scenes/main/jn-streaming-scene-main.component";
+import {JnStreamingThModule} from "../features/webgl/engines/three/jn-streaming-th.module";
 
 @NgModule({
     declarations: [
-        JnStreamingAppComponent,
-        JnStreamingSceneIntroComponent
+        JnStreamingApp,
+        JnStreamingSceneMain
     ],
     imports: [
+        // Module
+        // -------------------------------------------------------------------------------------------------------------
         JnStreamingAppRoutingModule,
+
+        // Feature
+        // -------------------------------------------------------------------------------------------------------------
+        JnStreamingThModule,
+
+        // Foundation
+        // -------------------------------------------------------------------------------------------------------------
         JnCoreModule,
-        JnThreeModule
+
+        // Lib
+        // -------------------------------------------------------------------------------------------------------------
+
+        // Framework
+        // -------------------------------------------------------------------------------------------------------------
     ],
     providers: [],
 })

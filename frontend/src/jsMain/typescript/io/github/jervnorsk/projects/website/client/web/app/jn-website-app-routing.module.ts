@@ -1,25 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {
-    JnNotFoundErrorComponent
-} from "../../../../../foundation/client/web/features/core/errors/not-found/jn-not-found-error.component";
-import {
-    JnNotImplementedErrorComponent
-} from "../../../../../foundation/client/web/features/core/errors/not-implemented/jn-not-implemented-error.component";
-import {JnWebsitePageComponent} from "./pages/jn-website-page.component";
+import {JnWebsitePage} from "./pages/jn-website-page.component";
+import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
 
 const routes: Routes = [
     {
         path: '',
-        pathMatch: "full",
-        component: JnWebsitePageComponent
+        pathMatch: 'full',
+        component: JnWebsitePage
     },
     {
         path: '',
         children: [
             {
+                path: 'components',
+                loadChildren: () => JnCoreModule,
+            },
+            {
                 path: 'webgl/three',
-                loadChildren: () => import("../features/webgl/engines/three/jn-website-three.module").then(it => it.JnWebsiteThreeModule)
+                loadChildren: () => import("../features/webgl/engines/three/jn-website-th.module").then(it => it.JnWebsiteThModule)
             },
             {
                 path: 'projects',
@@ -34,8 +33,8 @@ const routes: Routes = [
     },
     {
         path: '**',
-        component: JnWebsitePageComponent
-    },
+        component: JnWebsitePage
+    }
 ];
 
 @NgModule({
