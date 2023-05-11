@@ -1,10 +1,11 @@
 import {ThCamera, ThCanvas, ThGroup, ThScene} from "ngx-three";
 import {Component, ComponentRef, ContentChild, ViewChild} from "@angular/core";
+import {JnThObject} from "../common/jn-th-object.component";
 
 @Component({
     template: ''
 })
-export class JnThPrefab extends ThGroup {
+export abstract class JnThPrefab extends ThGroup implements JnThObject {
 
     @ViewChild(ThGroup, {static: true})
     protected group?: ThGroup
@@ -15,5 +16,15 @@ export class JnThPrefab extends ThGroup {
         if(this.group) {
             this.group.objRef = this.objRef;
         }
+
+        this.thOnInitDOM();
     }
+
+    ngAfterViewInit(): void {
+        this.thOnInitPrefab();
+    }
+
+    thOnInitDOM() {}
+
+    abstract thOnInitPrefab(): void;
 }

@@ -1,0 +1,13 @@
+.jn-stack-container
+    @extend .d-grid
+
+    .jn-stack-element
+        grid-row-start: 1
+        grid-column-start: 1
+
+        --jn-stack-height: calc(100% / var(--jn-stack-number) - 1px)
+        --jn-stack-inverse-index: calc(calc(var(--jn-stack-number) - 1) - var(--jn-index))
+        --jn-stack-clip-top: calc(var(--jn-stack-height) * var(--jn-index))
+        --jn-stack-clip-bottom: calc(var(--jn-stack-height) * var(--jn-stack-inverse-index))
+
+        clip-path: inset(var(--jn-stack-clip-top) 0 var(--jn-stack-clip-bottom) 0)

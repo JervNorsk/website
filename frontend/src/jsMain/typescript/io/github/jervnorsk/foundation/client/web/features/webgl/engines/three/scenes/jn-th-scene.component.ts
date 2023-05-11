@@ -1,10 +1,11 @@
 import {ThCamera, ThCanvas, ThScene} from "ngx-three";
-import {Component, ComponentRef, ContentChild, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, ComponentRef, ContentChild, ViewChild} from "@angular/core";
+import {JnThObject} from "../common/jn-th-object.component";
 
 @Component({
     template: ''
 })
-export class JnThScene extends ThScene {
+export abstract class JnThScene extends ThScene implements JnThObject {
 
     @ViewChild(ThScene, {static: true})
     protected scene?: ThScene
@@ -20,7 +21,17 @@ export class JnThScene extends ThScene {
         }
 
         this.fixCanvasInit();
+
+        this.thOnInitDOM();
     }
+
+    ngAfterViewInit() {
+        this.thOnInitScene();
+    }
+
+    thOnInitDOM() {}
+
+    abstract thOnInitScene(): void;
 
     private fixCanvasInit() {
         let canvas = this.parent as unknown as ThCanvas;

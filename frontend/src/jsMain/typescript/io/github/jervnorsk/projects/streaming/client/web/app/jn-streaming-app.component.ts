@@ -6,6 +6,6 @@ import {Component, Directive, ViewEncapsulation} from '@angular/core';
     styleUrls: ['./jn-streaming-app.component.sass'],
     encapsulation: ViewEncapsulation.None,
 })
-export class JnStreamingAppComponent {
+export class JnStreamingApp {
 
 }

@@ -1,10 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {
-    JnNotFoundErrorComponent
-} from "../../../../../foundation/client/web/features/core/errors/not-found/jn-not-found-error.component";
-import {JnStreamingSceneIntroComponent} from "../scenes/intro/jn-streaming-scene-intro.component";
-import {JnStreamingAppComponent} from "./jn-streaming-app.component";
+import {JnStreamingSceneMain} from "./scenes/main/jn-streaming-scene-main.component";
 
 const routes: Routes = [
     {
@@ -14,19 +10,19 @@ const routes: Routes = [
                 path: 'scenes',
                 children: [
                     {
-                        path: 'intro',
-                        component: JnStreamingSceneIntroComponent
+                        path: 'main',
+                        component: JnStreamingSceneMain
                     }
                 ]
             },
 
         ]
     },
-    {
-        path: '**',
-        pathMatch: "full",
-        component: JnNotFoundErrorComponent
-    },
+    // {
+    //     path: '**',
+    //     pathMatch: "full",
+    //     component: JnNotFoundErrorComponent
+    // },
 ];
 
 @NgModule({

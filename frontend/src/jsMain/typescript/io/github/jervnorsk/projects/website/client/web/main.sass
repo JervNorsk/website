@@ -1,3 +1,21 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Bootstrap Configuration
+// ---------------------------------------------------------------------------------------------------------------------
+// Defines custom variables that will override those from libraries.
+$font-size-root: 32px
+
+// Imports bootstrap libraries.
+@import "../../../../../../../../../../node_modules/bootstrap/scss/bootstrap"
+@import "../../../../../../../../../../node_modules/bootstrap-icons/font/bootstrap-icons"
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Foundation Configuration
+// ---------------------------------------------------------------------------------------------------------------------
+@import "../../../../foundation/client/web/features/core/jn-core.module"
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Main Configuration
+// ---------------------------------------------------------------------------------------------------------------------
 html
     overflow: hidden
 
@@ -8,6 +26,11 @@ body
     padding: 0
     margin: 0
 
-    //background-color: #0C0F10
-    //background-color: #161a1f
-    background-color: #121417
+router-outlet
+    display: none
+
+    //+ *
+    //    display: contents
+
+//ng-component
+//    display: contents

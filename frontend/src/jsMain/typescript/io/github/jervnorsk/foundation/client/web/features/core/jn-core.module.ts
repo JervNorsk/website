@@ -1,26 +1,51 @@
 import {NgModule} from "@angular/core";
-import {JnErrorComponent} from "./errors/jn-error.component";
-import {JnNotFoundErrorComponent} from "./errors/not-found/jn-not-found-error.component";
-import {JnNotImplementedErrorComponent} from "./errors/not-implemented/jn-not-implemented-error.component";
-import {BrowserModule} from "@angular/platform-browser";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {CommonModule} from "@angular/common";
+import {JnStack} from "./components/utils/stack/jn-stack.component";
+import {JnText} from "./components/utils/text/jn-text.component";
+import {JnEffectGlitch} from "./effects/glitch/jn-effect-glitch.directive";
+import {JnCoreRoutingModule} from "./jn-core-routing.module";
+import {JnErrorNotImplemented} from "./components/errors/jn-error-not-implemented.component";
+import {JnError} from "./components/errors/jn-error.component";
+import {JnErrorNotFound} from "./components/errors/jn-error-not-found.component";
+import {NgbAccordionBody} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
     declarations: [
-        JnErrorComponent,
-        JnNotFoundErrorComponent,
-        JnNotImplementedErrorComponent,
+        JnEffectGlitch,
+        JnError,
+        JnErrorNotFound,
+        JnErrorNotImplemented,
+        JnStack,
+        JnText,
     ],
     imports: [
+        // Module
+        // -------------------------------------------------------------------------------------------------------------
+        JnCoreRoutingModule,
+
+        // Lib
+        // -------------------------------------------------------------------------------------------------------------
+
+        // Framework
+        // -------------------------------------------------------------------------------------------------------------
         CommonModule,
-        NgbModule
     ],
     exports: [
+        // Module
+        // -------------------------------------------------------------------------------------------------------------
+        JnEffectGlitch,
+        JnError,
+        JnErrorNotFound,
+        JnErrorNotImplemented,
+        JnStack,
+        JnText,
+
+        // Lib
+        // -------------------------------------------------------------------------------------------------------------
+
+        // Framework
+        // -------------------------------------------------------------------------------------------------------------
         CommonModule,
-        NgbModule,
-        JnNotFoundErrorComponent,
-        JnNotImplementedErrorComponent
     ],
     providers: []
 })

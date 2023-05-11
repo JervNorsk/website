@@ -1,0 +1,5 @@
+<div class="jn-stack-container" [style]="stackStyle">
+    <span class="jn-stack-element jn-effect" [style]="stackSpanStyle(index)" *ngFor="let index of stackNumberArray">
+        <ng-content />
+    </span>
+</div>

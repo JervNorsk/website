@@ -1,5 +1,5 @@
 with(rootProject) {
-    name = "jervnorsk-website-backend"
+    name = "jn-website-backend"
 }
 
 dependencyResolutionManagement {
