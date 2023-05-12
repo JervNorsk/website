@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - main
+            - develop
 
 jobs:
     build:
@@ -18,7 +19,7 @@ jobs:
                     build_configuration: production
                     deploy_branch: github/pages
                     angular_project_dir: frontend
-                    angular_dist_build_folder: frontend/dist/jervnorsk-website-frontend
+                    angular_dist_build_folder: frontend/dist/jn-website-frontend
             -   name: Pushes to another repository
                 uses: cpina/github-action-push-to-another-repository@main
                 env:
@@ -28,7 +29,7 @@ jobs:
                     destination-repository-name: jervnorsk.github.io
                     user-email: jerv.norsk@github.com
                     target-branch: github/pages
-                    source-directory: frontend/dist/jervnorsk-website-frontend
+                    source-directory: frontend/dist/jn-website-frontend
 
 permissions:
     contents: write
