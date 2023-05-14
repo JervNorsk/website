@@ -4,25 +4,18 @@ import {JnStreamingSceneMain} from "./scenes/main/jn-streaming-scene-main.compon
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'scenes',
         children: [
             {
-                path: 'scenes',
-                children: [
-                    {
-                        path: 'main',
-                        component: JnStreamingSceneMain
-                    }
-                ]
-            },
-
+                path: 'main',
+                component: JnStreamingSceneMain
+            }
         ]
     },
-    // {
-    //     path: '**',
-    //     pathMatch: "full",
-    //     component: JnNotFoundErrorComponent
-    // },
+    {
+        path: 'commissions',
+        loadChildren: () => import('../commissions/jn-streaming-commission.module').then(it => it.JnStreamingCommissionModule)
+    }
 ];
 
 @NgModule({
