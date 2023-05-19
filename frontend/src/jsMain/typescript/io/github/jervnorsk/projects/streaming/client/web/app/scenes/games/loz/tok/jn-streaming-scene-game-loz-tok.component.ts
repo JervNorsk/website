@@ -26,6 +26,9 @@ import {take} from "rxjs";
 export class JnStreamingSceneGameLozTok implements OnInit {
 
     @Input()
+    debug: boolean = false
+
+    @Input()
     vr: boolean = false
 
     constructor(
@@ -35,6 +38,7 @@ export class JnStreamingSceneGameLozTok implements OnInit {
 
     ngOnInit() {
         this.route.queryParams.pipe(take(1)).subscribe(it => {
+            this.debug = it["debug"] === 'true'
             this.vr = it["vr"] === 'true'
         });
     }
