@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {JnStreamingCommissionGrumpyWolverineSceneMain} from "./main/jn-streaming-scene-main.component";
+import {JnStreamingCommissionGrumpyWolverineSceneMain} from "./main/jn-streaming-commission-grumpywolverine-scene-main.component";
 
 const routes: Routes = [
     {

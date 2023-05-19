@@ -42,9 +42,6 @@ export class JnWebsiteThSceneVR extends JnThScene {
         });
     }
 
-    thOnInitScene() {
-    }
-
     thOnInitXR() {
         document.body.append(
             VRButton.createButton(this.engine.renderer!)

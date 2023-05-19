@@ -33,7 +33,6 @@ export class JnWebsiteThSceneEnvironment extends JnThScene {
 
     constructor(
         private route: ActivatedRoute,
-        private engine: ThEngineService,
         parent: ThObject3D
     ) {
         super(parent);
@@ -45,8 +44,5 @@ export class JnWebsiteThSceneEnvironment extends JnThScene {
             this.debug = it["debug"] === 'true';
             this.vr = it["vr"] === 'true';
         });
-    }
-
-    override thOnInitScene() {
     }
 }

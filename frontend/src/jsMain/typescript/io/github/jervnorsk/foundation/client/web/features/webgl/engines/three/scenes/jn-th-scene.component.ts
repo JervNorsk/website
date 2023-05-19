@@ -1,42 +1,74 @@
-import {ThCamera, ThCanvas, ThScene} from "ngx-three";
-import {AfterViewInit, Component, ComponentRef, ContentChild, ViewChild} from "@angular/core";
+import {ThCamera, ThCanvas, ThEngineService, ThObject3D, ThScene} from "ngx-three";
+import {Component, EventEmitter, Inject, Injectable, Injector, Output, ViewChild} from "@angular/core";
 import {JnThObject} from "../common/jn-th-object.component";
+import {Camera, Renderer, Scene, WebGLRenderer} from "three";
+import {JnThModule} from "../jn-th.module";
+import {Observable, of} from "rxjs";
+
+export interface JnThSceneProps {
+    engine: ThEngineService
+    scene: Scene,
+}
 
 @Component({
-    template: ''
+    selector: 'jn-th-scene',
+    template: '<ng-content />'
 })
-export abstract class JnThScene extends ThScene implements JnThObject {
+export class JnThScene extends ThScene implements JnThObject {
+
+    @Output()
+    onInit = new EventEmitter<any>();
 
     @ViewChild(ThScene, {static: true})
-    protected scene?: ThScene
+    private scene?: ThScene
 
     @ViewChild(ThCamera, {static: true})
-    protected camera?: ThCamera
+    private camera?: ThCamera
+
+    constructor(
+        parent: ThObject3D,
+        private engineService?: ThEngineService
+    ) {
+        super(parent);
+    }
 
     override ngOnInit() {
         super.ngOnInit();
 
-        if(this.scene) {
+        if (this.scene) {
             this.scene.objRef = this.objRef;
         }
 
-        this.fixCanvasInit();
-
         this.thOnInitDOM();
+        this.thOnInitScene(this.objRef!);
+
+        if (this.parent && this.parent instanceof ThCanvas) {
+            this.parent.contentScene = this;
+
+            if (!this.camera) {
+                let camera = this.objRef!.children.find(it => it instanceof Camera) as Camera;
+
+                if (camera) {
+                    this.camera = new ThCamera(this as ThObject3D);
+                    this.camera!.objRef = camera;
+                }
+            }
+
+            this.parent.contentCamera = this.camera;
+        }
     }
 
     ngAfterViewInit() {
-        this.thOnInitScene();
+        // this.thOnInitScene(this.objRef!);
     }
 
-    thOnInitDOM() {}
+    thOnInitDOM() {
+    }
 
-    abstract thOnInitScene(): void;
-
-    private fixCanvasInit() {
-        let canvas = this.parent as unknown as ThCanvas;
-
-        canvas.contentScene = this;
-        canvas.contentCamera = this.camera
+    thOnInitScene(scene: Scene) {
+        this.onInit.emit({
+            engine: this.engineService,
+            scene: scene,
+        });
     }
 }
