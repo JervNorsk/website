@@ -11,26 +11,34 @@
                 }
             },
             "root": "",
-            "sourceRoot": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web",
+            "sourceRoot": "src/jsMain",
             "prefix": "app",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/jn-website-frontend",
-                        "index": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/index.html",
-                        "main": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/main.ts",
+                        "index": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.index.html",
+                        "main": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.main.ts",
                         "polyfills": [
                             "zone.js"
                         ],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "sass",
                         "assets": [
-                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/favicon.ico",
-                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/assets"
+                            {
+                                "glob": "favicon.ico",
+                                "input": "src/jsMain/resources/io/github/jervnorsk/projects/website/client/web/app/",
+                                "output": "/"
+                            },
+                            {
+                                "glob": "**/assets/**/*",
+                                "input": "src/jsMain/resources/io/github/jervnorsk/projects/streaming/client/web/app/",
+                                "output": "/projects/streaming"
+                            }
                         ],
                         "styles": [
-                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/main.sass"
+                            "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.main.sass"
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

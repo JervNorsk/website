@@ -8,6 +8,7 @@ import {JnErrorNotImplemented} from "./components/errors/jn-error-not-implemente
 import {JnError} from "./components/errors/jn-error.component";
 import {JnErrorNotFound} from "./components/errors/jn-error-not-found.component";
 import {NgbAccordionBody} from "@ng-bootstrap/ng-bootstrap";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import {NgbAccordionBody} from "@ng-bootstrap/ng-bootstrap";
         // Framework
         // -------------------------------------------------------------------------------------------------------------
         CommonModule,
+        HttpClientModule,
     ],
     providers: []
 })

@@ -1,12 +1,10 @@
 import {ThCamera, ThCanvas, ThEngineService, ThObject3D, ThScene} from "ngx-three";
-import {Component, EventEmitter, Inject, Injectable, Injector, Output, ViewChild} from "@angular/core";
+import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
 import {JnThObject} from "../common/jn-th-object.component";
-import {Camera, Renderer, Scene, WebGLRenderer} from "three";
-import {JnThModule} from "../jn-th.module";
-import {Observable, of} from "rxjs";
+import {Camera, Scene} from "three";
 
 export interface JnThSceneProps {
-    engine: ThEngineService
+    engine: ThEngineService,
     scene: Scene,
 }
 

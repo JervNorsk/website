@@ -19,7 +19,13 @@ const routes: Routes = [
                         children: [
                             {
                                 path: 'tok',
-                                component: JnStreamingSceneGameLozTok
+                                component: JnStreamingSceneGameLozTok,
+                                // children: [
+                                //     {
+                                //         path: "shaders",
+                                //         redirectTo: ''
+                                //     }
+                                // ]
                             }
                         ]
                     }
