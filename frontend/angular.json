@@ -18,7 +18,10 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist/jn-website-frontend",
-                        "index": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.index.html",
+                        "index": {
+                            "input": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.index.html",
+                            "output": "index.html"
+                        },
                         "main": "src/jsMain/typescript/io/github/jervnorsk/projects/website/client/web/app/jn-website-app.main.ts",
                         "polyfills": [
                             "zone.js"
