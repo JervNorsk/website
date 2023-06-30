@@ -32,10 +32,6 @@ const routes: Routes = [
                 ]
             }
         ]
-    },
-    {
-        path: 'commissions',
-        loadChildren: () => import('../commissions/jn-streaming-commission.module').then(it => it.JnStreamingCommissionModule)
     }
 ];
 
