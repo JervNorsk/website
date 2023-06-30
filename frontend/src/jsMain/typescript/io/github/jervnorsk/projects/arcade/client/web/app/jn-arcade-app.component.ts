@@ -8,16 +8,15 @@ import * as BABYLON from 'babylonjs';
 })
 export class JnArcadeApp implements OnInit {
 
-
     @ViewChild('renderCanvas', { static: true })
     private renderCanvas!: ElementRef<HTMLCanvasElement>;
 
     ngOnInit() {
         // Create the Babylon.js engine
-        const engine = new BABYLON.Engine(this.renderCanvas.nativeElement, true);
+        // const engine = new BABYLON.Engine(this.renderCanvas.nativeElement, true);
 
         // Create a scene
-        const scene = new BABYLON.Scene(engine);
+        // const scene = new BABYLON.Scene(engine);
 
         // ... your Babylon.js code here ...
 
