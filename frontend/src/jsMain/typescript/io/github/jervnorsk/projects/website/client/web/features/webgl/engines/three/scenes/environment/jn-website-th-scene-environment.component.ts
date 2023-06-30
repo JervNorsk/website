@@ -37,7 +37,7 @@ export class JnWebsiteThSceneEnvironment extends JnThSceneComponent {
         },
         animation: {
             point: {
-                inflate: 0.1
+                inflate: 0.05
             }
         }
     }
