@@ -1,19 +1,18 @@
 import {NgModule} from '@angular/core';
-import {JnWebsiteApp} from "./jn-website-app.component";
-import {JnWebsiteAppRoutingModule} from "./jn-website-app-routing.module";
 import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
-import {BrowserModule} from "@angular/platform-browser";
-import {JnWebsitePage} from "../pages/jn-website-page.component";
-import {JnWebsiteThModule} from "../features/webgl/engines/three/jn-website-th.module";
+import {JnArcadeApp} from "./jn-arcade-app.component";
+import {JnArcadeAppRoutingModule} from "./jn-arcade-app-routing.module";
+import {JnArcadeRoom} from "../components/room/jn-arcade-room.component";
 
 @NgModule({
     declarations: [
-        JnWebsiteApp
+        JnArcadeApp,
+        JnArcadeRoom
     ],
     imports: [
         // Module
         // -------------------------------------------------------------------------------------------------------------
-        JnWebsiteAppRoutingModule,
+        JnArcadeAppRoutingModule,
 
         // Feature
         // -------------------------------------------------------------------------------------------------------------
@@ -27,14 +26,8 @@ import {JnWebsiteThModule} from "../features/webgl/engines/three/jn-website-th.m
 
         // Framework
         // -------------------------------------------------------------------------------------------------------------
-        BrowserModule,
     ],
     providers: [],
-    bootstrap: [
-        // Module
-        // -------------------------------------------------------------------------------------------------------------
-        JnWebsiteApp
-    ]
 })
-export class JnWebsiteAppModule {
+export class JnArcadeAppModule {
 }
