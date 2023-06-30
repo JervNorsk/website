@@ -1,6 +1,6 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component} from '@angular/core';
 import {
-    JnThScene
+    JnThSceneComponent
 } from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/scenes/jn-th-scene.component";
 import {VRButton} from "three/examples/jsm/webxr/VRButton";
 import {ActivatedRoute} from "@angular/router";
@@ -12,7 +12,7 @@ import {BehaviorSubject, Subject} from "rxjs";
     templateUrl: './jn-website-th-scene-vr.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnWebsiteThSceneVR extends JnThScene {
+export class JnWebsiteThSceneVR extends JnThSceneComponent {
 
     sampleCaseIndex = new BehaviorSubject<number>(-1);
 

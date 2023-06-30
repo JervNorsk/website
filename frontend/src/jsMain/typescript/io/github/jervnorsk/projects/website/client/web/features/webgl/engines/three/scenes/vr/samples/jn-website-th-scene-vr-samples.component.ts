@@ -7,7 +7,7 @@ import {
     SimpleChanges
 } from '@angular/core';
 import {
-    JnThScene
+    JnThSceneComponent
 } from "../../../../../../../../../../../foundation/client/web/features/webgl/engines/three/scenes/jn-th-scene.component";
 import {ActivatedRoute} from "@angular/router";
 import {RenderState, ThEngineService, ThGroup, ThObject3D} from "ngx-three";
@@ -41,7 +41,7 @@ export abstract class JnWebsiteThSceneVRSampleCase extends Group{
     templateUrl: './jn-website-th-scene-vr-samples.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnWebsiteThSceneVRSamples extends JnThScene implements AfterViewInit {
+export class JnWebsiteThSceneVRSamples extends JnThSceneComponent implements AfterViewInit {
 
     @Input()
     sampleCaseIndex!: Observable<number>;

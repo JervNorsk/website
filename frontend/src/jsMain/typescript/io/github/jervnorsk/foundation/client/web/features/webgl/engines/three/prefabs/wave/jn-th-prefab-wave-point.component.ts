@@ -3,7 +3,7 @@ import {RenderState, ThBufferGeometry, ThEngineService, ThObject3D, ThPoints} fr
 import {BufferAttribute, BufferGeometry, Color, Points} from "three";
 import {BehaviorSubject} from "rxjs";
 import {JnThGridProps} from "../../utils/grid/jn-th-grid.component";
-import {JnThPrefab} from "../../prebas/jn-th-prefab.component";
+import {JnThPrefabComponent} from "../../prebas/jn-th-prefab.component";
 
 export interface JnThPrefabWavePointProps {
     grid?: JnThGridProps,
@@ -42,7 +42,7 @@ export interface JnThPrefabWavePointAnimationProps {
     templateUrl: './jn-th-prefab-wave-point.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnThPrefabWavePoint extends JnThPrefab implements JnThPrefabWavePointProps {
+export class JnThPrefabWavePoint extends JnThPrefabComponent implements JnThPrefabWavePointProps {
 
     @ViewChild(ThPoints, {static: true})
     points: ThPoints | undefined

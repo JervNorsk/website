@@ -24,6 +24,15 @@ const routes: Routes = [
                 path: 'projects',
                 children: [
                     {
+                        path: 'ai',
+                        children: [
+                            {
+                                path: 'harald',
+                                loadChildren: () => import("../../../../ai/harald/client/web/app/jn-ai-harald-app.module").then(it => it.JnAiHaraldAppModule)
+                            }
+                        ]
+                    },
+                    {
                         path: 'streaming',
                         loadChildren: () => import("../../../../streaming/client/web/app/jn-streaming-app.module").then(it => it.JnStreamingAppModule)
                     },

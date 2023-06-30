@@ -1,6 +1,6 @@
 import {AfterViewInit, OnInit} from "@angular/core";
 
-export declare interface JnThObject extends OnInit, AfterViewInit {
+export interface JnThComponent extends OnInit, AfterViewInit {
 
     thOnInitDOM(): void;
 }

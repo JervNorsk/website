@@ -1,18 +1,19 @@
 import {ThCamera, ThCanvas, ThEngineService, ThObject3D, ThScene} from "ngx-three";
 import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
-import {JnThObject} from "../common/jn-th-object.component";
+import {JnThComponent} from "../common/jn-th-component";
 import {Camera, Scene} from "three";
 
 export interface JnThSceneProps {
     engine: ThEngineService,
     scene: Scene,
+    debug: boolean
 }
 
 @Component({
     selector: 'jn-th-scene',
     template: '<ng-content />'
 })
-export class JnThScene extends ThScene implements JnThObject {
+export class JnThSceneComponent extends ThScene implements JnThComponent {
 
     @Output()
     onInit = new EventEmitter<any>();

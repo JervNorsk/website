@@ -2,11 +2,11 @@ import {Injector, NgModule} from "@angular/core";
 import {NgxThreeModule} from "ngx-three";
 import {JnThGrid} from "./utils/grid/jn-th-grid.component";
 import {JnThPrefabWavePoint} from "./prefabs/wave/jn-th-prefab-wave-point.component";
-import {JnThScene} from "./scenes/jn-th-scene.component";
+import {JnThSceneComponent} from "./scenes/jn-th-scene.component";
 
 @NgModule({
     declarations: [
-        JnThScene,
+        JnThSceneComponent,
         JnThGrid,
         JnThPrefabWavePoint
     ],
@@ -24,7 +24,7 @@ import {JnThScene} from "./scenes/jn-th-scene.component";
     exports: [
         // Module
         // -------------------------------------------------------------------------------------------------------------
-        JnThScene,
+        JnThSceneComponent,
         JnThGrid,
         JnThPrefabWavePoint,
 

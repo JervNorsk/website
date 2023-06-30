@@ -38,6 +38,11 @@
                                 "glob": "**/assets/**/*",
                                 "input": "src/jsMain/resources/io/github/jervnorsk/projects/streaming/client/web/app/",
                                 "output": "/projects/streaming"
+                            },
+                            {
+                                "glob": "**/assets/**/*",
+                                "input": "src/jsMain/resources/io/github/jervnorsk/projects/ai/harald/client/web/app/",
+                                "output": "/projects/ai/harald"
                             }
                         ],
                         "styles": [
@@ -45,6 +50,9 @@
                         ],
                         "scripts": [
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                        ],
+                        "allowedCommonJsDependencies": [
+                            "babylonjs-materials"
                         ]
                     },
                     "configurations": {
