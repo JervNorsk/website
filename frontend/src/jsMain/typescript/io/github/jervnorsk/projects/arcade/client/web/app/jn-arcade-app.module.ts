@@ -1,17 +1,21 @@
 import {NgModule} from '@angular/core';
-import {JnWebsiteApp} from "./jn-website-app.component";
-import {JnWebsiteAppRoutingModule} from "./jn-website-app-routing.module";
 import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
-import {BrowserModule} from "@angular/platform-browser";
+import {JnArcadeApp} from "./jn-arcade-app.component";
+import {JnArcadeAppRoutingModule} from "./jn-arcade-app-routing.module";
+import {JnArcadeRoom} from "../components/room/jn-arcade-room.component";
+import {JnArcadeGamePong} from "../games/pong/jn-arcade-game-pong.component";
+import {JnThModule} from "../../../../../foundation/client/web/features/webgl/engines/three/jn-th.module";
 
 @NgModule({
     declarations: [
-        JnWebsiteApp
+        JnArcadeApp,
+        JnArcadeRoom,
+        JnArcadeGamePong
     ],
     imports: [
         // Module
         // -------------------------------------------------------------------------------------------------------------
-        JnWebsiteAppRoutingModule,
+        JnArcadeAppRoutingModule,
 
         // Feature
         // -------------------------------------------------------------------------------------------------------------
@@ -19,20 +23,15 @@ import {BrowserModule} from "@angular/platform-browser";
         // Foundation
         // -------------------------------------------------------------------------------------------------------------
         JnCoreModule,
+        JnThModule
 
         // Lib
         // -------------------------------------------------------------------------------------------------------------
 
         // Framework
         // -------------------------------------------------------------------------------------------------------------
-        BrowserModule,
     ],
     providers: [],
-    bootstrap: [
-        // Module
-        // -------------------------------------------------------------------------------------------------------------
-        JnWebsiteApp
-    ]
 })
-export class JnWebsiteAppModule {
+export class JnArcadeAppModule {
 }
