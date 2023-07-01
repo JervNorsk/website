@@ -1,5 +1,7 @@
-import {Component, Directive, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import * as BABYLON from 'babylonjs';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
+import {take} from "rxjs";
 
 @Component({
     selector: '[jn-arcade-app]',
@@ -8,29 +10,18 @@ import * as BABYLON from 'babylonjs';
 })
 export class JnArcadeApp implements OnInit {
 
+    @Input()
+    debug: boolean = false
 
-    @ViewChild('renderCanvas', { static: true })
-    private renderCanvas!: ElementRef<HTMLCanvasElement>;
-
-    ngOnInit() {
-        // Create the Babylon.js engine
-        const engine = new BABYLON.Engine(this.renderCanvas.nativeElement, true);
-
-        // Create a scene
-        const scene = new BABYLON.Scene(engine);
-
-        // ... your Babylon.js code here ...
-
-        // Run the engine render loop
-        // engine.runRenderLoop(() => {
-        //     scene.render();
-        // });
-
-        // Handle window resizing
-        // window.addEventListener('resize', () => {
-        //     engine.resize();
-        // });
+    constructor(
+        private route: ActivatedRoute,
+        private http: HttpClient
+    ) {
     }
 
-
+    ngOnInit() {
+        this.route.queryParams.pipe(take(1)).subscribe(it => {
+            this.debug = it["debug"] === 'true'
+        });
+    }
 }

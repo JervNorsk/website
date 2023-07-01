@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {JnWebsitePage} from "../pages/jn-website-page.component";
 import {JnCoreModule} from "../../../../../foundation/client/web/features/core/jn-core.module";
 
 const routes: Routes = [
@@ -46,7 +45,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        component: JnWebsitePage
+        loadChildren: () => import("../pages/jn-website-page.module").then(it => it.JnWebsitePageModule)
     }
 ];
 
