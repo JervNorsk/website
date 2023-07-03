@@ -1,1 +1,19 @@
-<router-outlet />
+<div class="jn-arcade-background">
+    <th-canvas>
+        <th-scene>
+            <th-perspectiveCamera [position]="[0, 2, -5]" [lookAt]="[0,0,0]">
+                <th-orbitControls *ngIf="debug"/>
+            </th-perspectiveCamera>
+
+            <jn-arcade-room />
+
+            <ng-container *ngIf="debug">
+                <th-axesHelper [scale]="[3, 3, 3]"/>
+                <th-gridHelper [position]="[0,-0.001, 0]"/>
+            </ng-container>
+        </th-scene>
+    </th-canvas>
+</div>
+<div class="jn-arcade-foreground">
+
+</div>

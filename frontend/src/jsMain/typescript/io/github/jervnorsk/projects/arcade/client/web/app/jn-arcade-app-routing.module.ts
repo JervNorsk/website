@@ -6,7 +6,11 @@ import {JnArcadeGamePong} from "../games/pong/jn-arcade-game-pong.component";
 const routes: Routes = [
     {
         path: '',
+        pathMatch: 'full',
         component: JnArcadeApp,
+    },
+    {
+        path: '',
         children: [
             {
                 path: 'games',

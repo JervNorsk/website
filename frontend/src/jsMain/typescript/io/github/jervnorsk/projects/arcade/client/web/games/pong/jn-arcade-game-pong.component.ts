@@ -13,6 +13,7 @@ import {RenderState} from "ngx-three";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 import {Font, FontLoader} from "three/examples/jsm/loaders/FontLoader";
 import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry';
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 @Component({
     selector: '[jn-arcade-game-pong]',
@@ -20,6 +21,9 @@ import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry';
     styleUrls: ['./jn-arcade-game-pong.component.sass']
 })
 export class JnArcadeGamePong implements OnInit, OnDestroy {
+
+    // ARCADE ROOM BACKGROUND AUDIO:
+    // - https://open.spotify.com/track/7f0vVL3xi4i78Rv5Ptn2s1?si=9d643651f12a4ffa
 
     @Input()
     debug: boolean = false
