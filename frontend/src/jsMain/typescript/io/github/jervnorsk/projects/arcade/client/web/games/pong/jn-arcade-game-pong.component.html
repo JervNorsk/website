@@ -1,5 +1,5 @@
 <div class="jn-arcade-game-pong-webgl">
-    <th-canvas>
+    <th-canvas *ngIf="assets.font">
        <jn-th-scene (onInit)="onInitThScene($event)" />
     </th-canvas>
 </div>
