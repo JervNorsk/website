@@ -43,6 +43,11 @@
                                 "glob": "**/assets/**/*",
                                 "input": "src/jsMain/resources/io/github/jervnorsk/projects/ai/harald/client/web/app/",
                                 "output": "/projects/ai/harald"
+                            },
+                            {
+                                "glob": "**/assets/**/*",
+                                "input": "src/jsMain/resources/io/github/jervnorsk/projects/arcade/client/web/",
+                                "output": "/projects/arcade"
                             }
                         ],
                         "styles": [

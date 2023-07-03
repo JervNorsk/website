@@ -15,6 +15,16 @@ export class JnArcadeRoom extends JnThPrefabComponent {
     @Input()
     debug: boolean = false
 
+    assets = {
+        env: {
+           cabin: {
+               pong: {
+                   url: `${window.location.pathname}/games/pong/assets/env/cabin/arcade_pong_cabin.glb`
+               }
+           }
+        }
+    }
+
     constructor(
         private route: ActivatedRoute,
         private engine: ThEngineService,
@@ -24,6 +34,6 @@ export class JnArcadeRoom extends JnThPrefabComponent {
     }
 
     thOnInitPrefab(): void {
-        
+
     }
 }
