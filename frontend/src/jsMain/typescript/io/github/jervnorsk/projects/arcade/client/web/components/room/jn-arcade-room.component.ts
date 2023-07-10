@@ -19,7 +19,7 @@ export class JnArcadeRoom extends JnThPrefabComponent {
         env: {
            cabin: {
                pong: {
-                   url: `${window.location.pathname}/games/pong/assets/env/cabin/arcade_pong_cabin.glb`
+                   url: `${window.location.pathname}/games/pong/assets/env/cabinet/arcade_pong_cabinet.glb`
                }
            }
         }
@@ -34,6 +34,5 @@ export class JnArcadeRoom extends JnThPrefabComponent {
     }
 
     thOnInitPrefab(): void {
-
     }
 }
