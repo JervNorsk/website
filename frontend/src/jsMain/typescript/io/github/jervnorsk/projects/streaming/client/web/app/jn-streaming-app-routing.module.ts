@@ -1,28 +1,38 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {JnStreamingSceneMain} from "./scenes/main/jn-streaming-scene-main.component";
+import {JnStreamingSceneGameLozTok} from "./scenes/games/loz/tok/jn-streaming-scene-game-loz-tok.component";
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'scenes',
         children: [
             {
-                path: 'scenes',
+                path: 'main',
+                component: JnStreamingSceneMain
+            },
+            {
+                path: 'games',
                 children: [
                     {
-                        path: 'main',
-                        component: JnStreamingSceneMain
+                        path: 'loz',
+                        children: [
+                            {
+                                path: 'tok',
+                                component: JnStreamingSceneGameLozTok,
+                                // children: [
+                                //     {
+                                //         path: "shaders",
+                                //         redirectTo: ''
+                                //     }
+                                // ]
+                            }
+                        ]
                     }
                 ]
-            },
-
+            }
         ]
-    },
-    // {
-    //     path: '**',
-    //     pathMatch: "full",
-    //     component: JnNotFoundErrorComponent
-    // },
+    }
 ];
 
 @NgModule({

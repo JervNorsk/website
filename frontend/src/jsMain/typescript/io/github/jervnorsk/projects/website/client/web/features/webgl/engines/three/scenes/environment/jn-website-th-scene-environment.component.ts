@@ -1,18 +1,19 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {
-    JnThScene
+    JnThSceneComponent
 } from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/scenes/jn-th-scene.component";
-import {ThEngineService, ThObject3D} from "ngx-three";
+import {ThObject3D} from "ngx-three";
 import {ActivatedRoute} from "@angular/router";
 import {
     JnThPrefabWavePointProps
 } from "../../../../../../../../../../foundation/client/web/features/webgl/engines/three/prefabs/wave/jn-th-prefab-wave-point.component";
+
 @Component({
     selector: 'jn-website-th-scene-environment',
     templateUrl: './jn-website-th-scene-environment.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JnWebsiteThSceneEnvironment extends JnThScene {
+export class JnWebsiteThSceneEnvironment extends JnThSceneComponent {
 
     @Input()
     debug: boolean = false
@@ -28,12 +29,21 @@ export class JnWebsiteThSceneEnvironment extends JnThScene {
                 x: 100,
                 y: 100
             }
+        },
+        point: {
+            geometry: {
+                radius: 0.08
+            }
+        },
+        animation: {
+            point: {
+                inflate: 0.02
+            }
         }
     }
 
     constructor(
         private route: ActivatedRoute,
-        private engine: ThEngineService,
         parent: ThObject3D
     ) {
         super(parent);
@@ -45,8 +55,5 @@ export class JnWebsiteThSceneEnvironment extends JnThScene {
             this.debug = it["debug"] === 'true';
             this.vr = it["vr"] === 'true';
         });
-    }
-
-    override thOnInitScene() {
     }
 }
