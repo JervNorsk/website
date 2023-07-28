@@ -1,0 +1,54 @@
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: services/app/package-lock.json
+      - working-directory: services/app
+        run: |
+          npm ci
+          #npm test     # TODO: Enable when test are written
+
+  deployment:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: services/app/package-lock.json
+      - working-directory: services/app
+        run: |
+          npm ci
+          npm run build
+      - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          build_configuration: production
+          angular_project_dir: services/app
+          angular_dist_build_folder: services/app/dist/app
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
+        with:
+          destination-github-username: jervnorsk
+          destination-repository-name: jervnorsk.github.io
+          user-email: jerv.norsk@github.com
+          source-directory: services/app/dist/app
+          target-branch: github/pages
+
