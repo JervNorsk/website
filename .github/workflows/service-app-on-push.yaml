@@ -37,8 +37,6 @@ jobs:
           cache-dependency-path: services/app/package-lock.json
       - working-directory: services/app
         run: |
-          echo "@jervnorsk:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           npm ci
           npm run build
       - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
@@ -47,6 +45,7 @@ jobs:
           build_configuration: production
           angular_project_dir: services/app
           angular_dist_build_folder: services/app/dist/app
+          deploy_branch: github/pages
       - uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
