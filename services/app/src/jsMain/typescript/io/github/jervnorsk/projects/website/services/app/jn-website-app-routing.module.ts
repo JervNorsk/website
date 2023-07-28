@@ -5,20 +5,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      {
-        path: 'extensions',
-        children: [
-          {
-            path: 'pcg',
-            children: [
-              {
-                path: 'streaming',
-                loadChildren: () => import('@jervnorsk/pcg-streaming-extension').then(it => it.PcgSeApiModule)
-              }
-            ]
-          }
-        ]
-      }
+
     ]
   }
 ];
