@@ -36,8 +36,10 @@ jobs:
           cache: npm
           cache-dependency-path: services/app/package-lock.json
       - working-directory: services/app
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          echo "@jervnorsk:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+      - working-directory: services/app
         run: |
           npm ci
           npm run build
