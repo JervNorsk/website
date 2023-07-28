@@ -19,6 +19,8 @@ jobs:
           cache: npm
           cache-dependency-path: services/app/package-lock.json
       - working-directory: services/app
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           npm ci
           #npm test     # TODO: Enable when test are written
@@ -34,6 +36,8 @@ jobs:
           cache: npm
           cache-dependency-path: services/app/package-lock.json
       - working-directory: services/app
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           npm ci
           npm run build
