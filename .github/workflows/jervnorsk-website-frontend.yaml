@@ -9,7 +9,9 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
+        permissions:
+          packages: read
+          contents: read
         steps:
             -   uses: actions/checkout@v3
             -   uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
