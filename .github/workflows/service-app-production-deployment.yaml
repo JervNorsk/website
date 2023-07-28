@@ -1,8 +1,9 @@
+name: Continuous Deployment on GitHub Pages
+
 on:
   push:
     branches:
       - main
-      - develop
 
 permissions:
   contents: write
