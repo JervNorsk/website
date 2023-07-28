@@ -12,24 +12,22 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v3
-            -   name: Build and Deploy GitHub Pages
-                uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+            -   uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
                 with:
                     github_access_token: ${{ secrets.GITHUB_TOKEN }}
                     build_configuration: production
                     deploy_branch: github/pages
-                    angular_project_dir: frontend
-                    angular_dist_build_folder: frontend/dist/jn-website-frontend
-            -   name: Pushes to another repository
-                uses: cpina/github-action-push-to-another-repository@main
+                    angular_project_dir: services/app
+                    angular_dist_build_folder: services/app/dist/app
+            -   uses: cpina/github-action-push-to-another-repository@main
                 env:
                     API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
                 with:
                     destination-github-username: jervnorsk
                     destination-repository-name: jervnorsk.github.io
                     user-email: jerv.norsk@github.com
+                    source-directory: services/app/dist/app
                     target-branch: github/pages
-                    source-directory: frontend/dist/jn-website-frontend
 
 permissions:
     contents: write
