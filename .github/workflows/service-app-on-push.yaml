@@ -38,7 +38,6 @@ jobs:
       - working-directory: services/app
         run: |
           npm ci
-          npm run build
       - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -46,6 +45,7 @@ jobs:
           angular_project_dir: services/app
           angular_dist_build_folder: services/app/dist/app
           deploy_branch: github/pages
+          base_href: /
       - uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
