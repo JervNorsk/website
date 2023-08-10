@@ -41,5 +41,5 @@ jobs:
           build_configuration: production
           angular_dist_build_folder: dist/jn-website-frontend
           deploy_branch: 2023/website/github/pages
-          base_href: /archive/2023/website
+          base_href: /archive/2023/website/
 
