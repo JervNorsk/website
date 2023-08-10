@@ -3,7 +3,7 @@ name: Continuous Deployment on GitHub Pages
 on:
   push:
     branches:
-      - 2023/website
+      - 2023/website/main
 
 permissions:
   contents: write
