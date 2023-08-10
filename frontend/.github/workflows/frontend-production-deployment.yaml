@@ -19,12 +19,10 @@ jobs:
           node-version: 18
           cache: npm
           cache-dependency-path: package-lock.json
-      - working-directory: services/app
-        run: |
+      - run: |
           echo "@jervnorsk:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           npm ci
-          #npm test     # TODO: Enable when test are written
 
   deployment:
     needs: build
@@ -36,14 +34,12 @@ jobs:
           node-version: 18
           cache: npm
           cache-dependency-path: package-lock.json
-      - working-directory: services/app
-        run: |
+      - run: |
           npm ci
       - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           build_configuration: production
-          angular_project_dir: services/app
           angular_dist_build_folder: dist/app
           deploy_branch: 2023/website/github/pages
           base_href: /archive/2023/website
