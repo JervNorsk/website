@@ -44,7 +44,7 @@ jobs:
           base_href: /archive/2023/website
       - uses: cpina/github-action-push-to-another-repository@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_GITHUB_ACTIONS_DEPLOYMENT_KEY }}
         with:
           source-directory: dist/jn-website-frontend
           destination-github-username: jervnorsk
