@@ -1,0 +1,59 @@
+name: Continuous Deployment on GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  packages: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - working-directory: services/app
+        run: |
+          echo "@jervnorsk:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          npm ci
+          #npm test     # TODO: Enable when test are written
+
+  deployment:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - working-directory: services/app
+        run: |
+          npm ci
+      - uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.4.0
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          build_configuration: production
+          angular_project_dir: services/app
+          angular_dist_build_folder: dist/app
+          deploy_branch: 2023/website/github/pages
+          base_href: /archive/2023/website
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.WORKSPACE_GITHUB_TOKEN }}
+        with:
+          source-directory: dist/app
+          destination-github-username: jervnorsk
+          destination-repository-name: archive
+          target-branch: github/pages
+          target-directory: 2023/website
+
